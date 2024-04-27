@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		$(document).ready(function(){
+		});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!-- header -->
+			<div id="header">
+				<span class="navBtn"><a href="installment_list.html" class="mnPrev">이전</a></span>
+				<h1><a href="main.html">eSign</a></h1>
+				<h2>할부상담신청</h2>
+				<a href="main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<div class="right">
+					<span class="userInfo"><strong>김르노</strong> 님 <span>안녕하세요.</span></span>
+					<span class="session cyanCase">
+						<strong>26분 30초</strong>
+						<span></span> <!-- time progress bar -->
+					</span>
+					<button class="sesRe">세션연장</button>
+					<a class="btnLogout" href="login.html">로그아웃</a>
+				</div>
+				<span class="btnMSearch"><button>검색</button></span> <!-- 모바일의 검색버튼 -->
+			</div>
+			<!-- //header -->
+			<!-- SNB : 상세화면에서는 생략 -->
+			<!-- container -->
+			<div id="container" class="o-wrapper ismViewCase">
+				<div class="content">
+					<section>
+						<!-- Installment Layout -->
+						<div class="ismViewLayou fullCase">
+							<!---->
+							<div class="ismTitStep">
+								<div>
+									<span class="pass"><strong>1</strong><em>eSign 가능대상 확인</em></span><!--2019-01-04-->
+									<span class="pass"><strong>2</strong><em>개인정보동의 및 휴대전화 본인인증</em></span>
+									<span class="pass"><strong>3</strong><em>신분증 진위확인</em></span>
+									<span class="pass"><strong>4</strong><em>할부상담신청 작성</em></span>
+									<span class="on"><strong>5</strong><em>할부상담신청 완료</em></span>
+								</div>
+							</div>
+							<!---->
+							<div class="ismDetail tableCase">
+								<div class="col">
+									<!-- step End -->
+									<div class="stepEnd">   
+										<p class="orangeMiddle">
+											<strong>Completed!</strong>
+											할부상담신청이 완료되었습니다.
+										</p>
+										<div class="applyInfo">
+											<div class="gridSet grid3">
+												<div class="gridItem first">
+													<dl>
+														<dt>성    명</dt>
+														<dd>홍 길 동</dd>
+													</dl>
+												</div> 
+												<div class="gridItem">
+													<dl>
+														<dt>휴대전화</dt>
+														<dd>000-0000-0000</dd>
+													</dl>
+												</div> 
+												<div class="gridItem">
+													<dl>
+														<dt>신청번호</dt>
+														<dd>e201811-000506</dd>
+													</dl>
+												</div> 
+											</div> 
+										</div>
+										<p class="middle">
+											할부금융약정을 위한 <strong>카카오 알림톡</strong>을 발송해 드릴 예정입니다.<!--2019-01-04--><br/><br/>
+
+											eSign을 이용해 주셔서 감사합니다. 
+										</p>
+										<div class="btn oneCase">
+											<span>
+												<a href="installment_view.html" class="btnBO">신청정보 상세보기</a>
+											</span>
+										</div>
+									</div>
+									<!-- //step End -->
+								</div>
+							</div>
+							<!---->
+						</div>
+						<!-- //Installment Layout -->
+					</section>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

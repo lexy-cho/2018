@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<link rel="stylesheet" type="text/css" href="css/duDatepicker.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/duDatepicker.js"></script>
+		<script>
+		$(document).ready(function(){
+			$('.calInput').duDatepicker({
+				 format: 'yyyy-mm-dd', // Determines the date format
+				  theme: 'yellow',        // Determines the color theme of the date picker
+				  readOnly: true,       // Determines if input element is readonly (key input is disabled)
+				  clearBtn: false,      // Determines if Clear button is displayed
+				  cancelBtn: true,     // Determines if Cancel button is displayed
+				  overlayClose: true    // Determines if clicking the overlay will close the date picker
+			});	// 2018-11-27 달력 스크립트 추가
+
+			$(".snbRule .btn button").click(function(){
+				$(".appVersion").toggle();
+				$(this).toggleClass('on');
+			}); // 버전정보 토글
+
+			$(".btnMSearch button").click(function(){
+				$(".boardTop").slideToggle();
+			}); // 모바일 검색버튼
+		});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!-- header -->
+			<div id="header">
+				<span class="navBtn"><input type="button" class="mnOpen" value="열기" id="c-button--slide-left" /></span>
+				<h1><a href="mainFs.html">eSign</a></h1>
+				<h2>eSign 실적현황</h2>
+				<a href="fs_main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<div class="right">
+					<span class="userInfo"><strong>김르노</strong> 님 <span>안녕하세요.</span></span>
+					<span class="session cyanCase">
+						<strong>26분 30초</strong>
+						<span></span> <!-- time progress bar -->
+					</span>
+					<button class="sesRe">세션연장</button>
+					<a class="btnLogout" href="login.html">로그아웃</a>
+				</div>
+				<span class="btnMSearch"><button>검색</button></span> <!-- 모바일의 검색버튼 -->
+			</div>
+			<!-- //header -->
+			<!-- SNB -->
+			<div id="snbPannel" class="c-menu c-menu--slide-left">
+				<input type="button" class="mnClose c-menu__close" value="닫기"/>
+				<div class="snbback">
+					<div class="snbScroll">
+						<div class="snbtop">
+							<div class="back">
+								<div class="snbUserInfo">
+									<strong>반갑습니다.</strong> 경기도 지점 <em>김르노</em>님<br/>(010-1234-5678)
+									<span>세션만료 <em>26분 30초</em> <input type="button" value="세션연장" /></span><!-- mobileCase -->
+								</div>
+								<div class="btn">
+									<span><a href="password.html">비밀번호 변경</a></span>
+									<span><a href="login.html">로그아웃</a></span>
+								</div>
+							</div>
+						</div>
+						<nav>
+							<ul class="snbMenu">
+								<li class="sm1"><a href="fs_performanceList.html">eSign 실적현황</a></li>
+								<li class="sm1"><a href="fs_loanList.html">대출리스트 현황</a></li>
+								<li class="sm1"><a href="fs_commissionList.html">커미션현황</a></li>
+								<li class="sm2"><a href="notice_list.html">공지사항</a></li>	
+								<li class="sm3"><a href="qna_list.html">자주 묻는 질문</a></li>
+								<li class="sm4"><a href="guide_list.html">사용자 가이드</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="snbFoot">
+						<div class="snbRule">
+							<div class="btn">
+								<span><a href="terms_conditions.html">개인정보처리방침</a></span>
+								<span><button>버전정보</button></span>
+							</div>
+							<div class="appVersion" style="display:none;">
+								<p>현재 eSign의 버전 정보 입니다</p>
+								<div><strong>eSign</strong><em>1.1.3</em></div>
+							</div>
+						</div>
+						<div class="ftlogo">RCI Financial Services Korea</div>
+					</div>
+				</div>
+			</div>
+			<div id="c-mask" class="c-mask"><!-- //메뉴용 c-mask --></div>
+			<!-- //SNB -->
+			<!-- container -->
+			<div id="container" class="o-wrapper tableFs">
+				<div class="content">
+					<section>
+						<!-- Installment Layout -->
+						<div class="listLayout">
+							<!-- Search -->
+							<div class="boardTop fs3">
+								<div class="line">
+									<div class="calBack">
+										<!-- calendar -->
+										<span class="calArea">	
+											<span class="calSet">
+												<input type="button" value="10" class="cal" disabled/>
+												<input type="text" value="2018-07-01" class="calInput" />
+											</span>
+											<span class="term"></span>
+											<span class="calSet">
+												<input type="button" value="10" class="cal" disabled />
+												<input type="text" value="2018-07-01" class="calInput" />
+											</span>
+										</span>
+										<!--// calendar 기본 날짜는 금일 날짜가 포함된 2달 -->
+										<button class="calRe">검색 초기화</button>										
+									</div>
+									<!-- FS 일반로그인 
+									<div class="fsSelectbox wAuto">
+										<span class="selectSet">
+											<select>
+												<option>지점</option>
+												<option>영업</option>
+												<option>개발</option>
+											</select>
+										</span>	
+										<span class="selectSet">
+											<select>
+												<option>SCA</option>
+												<option>01</option>
+												<option>02</option>
+											</select>
+										</span>								
+									</div> -->	
+									<div class="fsSelectbox threeCase">
+										<!-- FS팀장 		-->										
+										<span class="selectSet first">
+											<select>
+												<option>지역본부</option>
+												<option>01</option>
+												<option>02</option>												
+											</select>
+										</span>	
+										<span class="selectSet second">
+											<select>
+												<option>FS</option>
+												<option>영업</option>
+												<option>개발</option>
+											</select>
+										</span>	
+										<span class="selectSet third">
+											<select>
+												<option>지점</option>
+												<option>01</option>
+												<option>02</option>
+											</select>
+										</span>
+										<!-- // FS팀장 -->								
+										<!-- 상위관리자 로그인
+										<span class="selectSet first">
+											<select>
+												<option>부서</option>
+												<option>영업</option>
+												<option>개발</option>
+											</select>
+										</span>	
+										<span class="selectSet second">
+											<select>
+												<option>지역본부</option>
+												<option>01</option>
+												<option>02</option>
+											</select>
+										</span>	
+										<span class="selectSet third">
+											<select>
+												<option>FS</option>
+												<option>01</option>
+												<option>02</option>
+											</select>
+										</span>		-->																					
+									</div>		
+									<!--//-->
+									<button class="searchIcon">검색</button>
+									<!-- 반응형 셀렉트박스 2019-10-24 지우기 -->								
+								</div>
+							</div>
+							<!-- Tab -->
+							<div class="ctTab">
+								<div>
+									<span>
+										<input type="radio" name="ctTab" checked id="ctTab1" /><label for="ctTab1">ALL<strong>5</strong></label>
+									</span>
+									<span>
+										<input type="radio" name="ctTab" id="ctTab2" /><label for="ctTab2">약정대기<strong>1</strong></label>
+									</span>
+									<span>
+										<input type="radio" name="ctTab" id="ctTab3" /><label for="ctTab3">약정신규<strong>1</strong></label>
+									</span>
+									<span>
+										<input type="radio" name="ctTab" id="ctTab4" /><label for="ctTab4">약정변경<strong>2</strong></label>
+									</span>
+									<span>
+										<input type="radio" name="ctTab" id="ctTab6" /><label for="ctTab6">심사완료<strong>1</strong></label>
+									</span>
+								</div>
+							</div>
+							<!-- //Tab -->
+							<!-- PC List -->
+							<div class="pcList">
+								<!-- 리스트 타이틀 테이블 -->
+								<div class="ttTable">
+									<table cellpadding="0" cellspacing="0" border="0" class="gridList">
+										<colgroup>
+											<col width="12%" />
+											<col width="12%" />
+											<col width="12%" />
+											<col width="17%" />
+											<col width="14%" />
+											<col width="12%" />
+											<col width="15%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>부서</th>
+												<th>지역본부</th>
+												<th>FS명</th>
+												<th>할부상담 신청일자 <button class="sort sup">up</button></th>
+												<th>신청번호 <button class="sort sdown">down</button></th>
+												<th>진행상태</th>
+												<th>신청인</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<!--// 리스트 타이틀 테이블 -->
+								<table cellpadding="0" cellspacing="0" border="0" class="gridList">
+									<colgroup>
+										<col width="12%" />
+										<col width="12%" />
+										<col width="12%" />
+										<col width="17%" />
+										<col width="14%" />
+										<col width="12%" />
+										<col width="15%" />
+									</colgroup>
+									<tbody>
+										<!-- Loop -->
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김명훈이</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<!-- //Loop -->
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김길동이</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김홍길동</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+										<tr onclick="location.href='installment_view.html'">
+											<td>Dongbu</td>
+											<td>동부</td>
+											<td>김FS</td>
+											<td>2018-11-27 14:00</td>
+											<td>e201811-000506</td>
+											<td class="status">상담신청 완료<em>(약정대기)</em></td>
+											<td><i>홍*동0</i> 000-****-0000</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="mobileListFs">
+								<div class="cardListFs">
+									<ul>
+										<!-- Loop -->
+										<li>
+											<a href="">
+												<span class="status"><span>Dongbu</span><span>동부</span><span>김Fs</span> 2018-11-27 14:00</span>
+												<em>e201811-000506</em>
+												<em>상담신청완료(약정대기)</em>
+												<strong><i>홍*동0</i>(010-****-6789)</strong>
+											</a>
+										</li>
+										<!-- //Loop -->
+										<li>
+											<a href="">
+												<span class="status"><span>Dongbu</span><span>동부</span><span>김Fs</span> 2018-11-27 14:00</span>
+												<em>e201811-000506</em>
+												<em>상담신청완료(약정대기)</em>
+												<strong><i>홍*동0</i>(010-****-6789)</strong>
+											</a>
+										</li>
+										<li>
+											<a href="">
+												<span class="status"><span>Dongbu</span><span>동부</span><span>김Fs</span> 2018-11-27 14:00</span>
+												<em>e201811-000506</em>
+												<em>상담신청완료(약정대기)</em>
+												<strong><i>홍*동0</i>(010-****-6789)</strong>
+											</a>
+										</li>
+										<li>
+											<a href="">
+												<span class="status"><span>Dongbu</span><span>동부</span><span>김Fs</span> 2018-11-27 14:00</span>
+												<em>e201811-000506</em>
+												<em>상담신청완료(약정대기)</em>
+												<strong><i>홍*동0</i>(010-****-6789)</strong>
+											</a>
+										</li>
+										<li>
+											<a href="">
+												<span class="status"><span>Dongbu</span><span>동부</span><span>김Fs</span> 2018-11-27 14:00</span>
+												<em>e201811-000506</em>
+												<em>상담신청완료(약정대기)</em>
+												<strong><i>홍*동0</i>(010-****-6789)</strong>
+											</a>
+										</li>
+										<!-- None -->
+										<li class="notLine" style="display:none;">
+											<span>할부상담 신청 건이 없습니다.</span>
+										</li>
+										<li class="notLine" style="display:none;">
+											<span>검색된 결과가 없습니다.</span>
+										</li>
+										<!-- //None -->
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- //Installment Layout -->
+					</section>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		$(document).ready(function(){
+			$(".tabData").hide();
+			$(".tabData.step5").show();
+			$(".tab li a").click(function () {
+				$(".tab li").removeClass("on");
+				$(this).parent("li").addClass("on");
+				$(".tabData").hide();
+				var activeTab = $(this).attr("data-name");
+				$("." + activeTab).fadeIn();
+			});
+			/* var tab = $(".tab");
+			var sticky = tab.offset();
+			$("body").scroll(function() {
+				console.log(sh);
+				var sh = $(this).scrollTop();
+				if ( sh >= (sticky.top-200)){
+					tab.addClass('fix');
+				}else{
+					tab.removeClass('fix');
+				}
+			}); */
+
+			$(".step3 .agreeList button").click(function(){
+				$("#agp1").show();
+			});
+			$(".stepInsurance .agreeList button").click(function(){
+				$("#agp2").show();
+			});
+			$(".agreePop .btn button, .agreePop .close").click(function(){
+				$(".agreePop").hide();
+			});
+
+
+		});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 개인정보동의 -->
+		<div class="dimPop agreePop" id="agp1" style="display:none;">
+			<div class="popBack">
+				<button class="close">닫기</button>
+				<div class="tt">
+					<h2>개인신용정보 동의서 전문보기</h2>
+				</div>
+				<div class="back">
+					<div class="left">
+						<ul class="agreePList">
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(필수)</strong> 전자서명 동의서<i></i></label>
+								</div>
+							</li>
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(필수)</strong> 개인(신용)정보 필수적 수집,이용에 관한 사항<i></i></label>
+								</div>
+							</li>
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(필수)</strong> 개인(신용)정보 조회에 관한 사항<i></i></label>
+								</div>
+							</li>
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(필수)</strong> 개인(신용)정보 필수적  제공에 관한 사항<i></i></label>
+								</div>
+							</li>
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong>(선택)</strong> 개인(신용)정보 선택적 수집.이용에 관한 사항<i></i></label>
+								</div>
+							</li>
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong>(선택)</strong> 개인(신용)정보의 선택적 제공에 관한 사항<i></i></label>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="right"><!-- 2020-05-20 viewCase 삭제 -->
+						<div class="agreeScroll" style="display:none;">
+							<div class="first">개인신용정보동의서를 선택해주세요.<br/>필수 항목인 경우 반드시 전문보기를 진행해야 합니다.</div>
+						</div>
+						<div class="agreeScroll" style="">
+							<h3><strong class="must">(필수)</strong> 전자서명 업무진행 동의서</h3>
+							<div class="txt">
+								<p class="tR">알씨아이파이낸셜서비스코리아 귀중</p>
+								<p>알씨아이파이낸셜서비스코리아는 본인휴대폰인증 방식을 통한 전자서명 서비스를 제공하고 있습니다. 아래 내용에 동의하지 않는 경우 전자서명 진행은 불가능하나, 별도의 절차에 따라 정해진 종이 계약서를 통한 할부계약 체결은 가능합니다.</p>
+								<ol>
+									<li>
+										<strong>전자서명 안내</strong>
+										<ol>
+											<li>1. 전자문서란 정보처리시스템에 의하여 전자적 형태로 작성되어 송신 또는 수신되거나 저장된 정보를 말합니다. (전자서명법 제2조 제1호)</li>
+											<li>2. 전자서명이란 서명자를 확인하고 서명자가 당해 전자문서에 서명하였음을 나타내는데 이용하기 위하여 당해 전자문서에 첨부되거나 논리적으로 결합된 전자적 형태의 정보를 말합니다. (전자서명법 제2조 제2호)</li>
+											<li>3. 전자문서 작성 및 전자서명은 알씨아이파이낸셜서비스코리아 전자서명시스템 화면을 통해 제공되는 전자문서의 내용을 확인하고 화면을 통해 전자문서에 직접 정보를 입력하거나 서명하시면 됩니다.</li>
+											<li>4. 자동차매매계약에 따라 르노삼성자동차 및 알씨아이파이낸셜서비스 영업담당과 최종 할부조건이 확정되면 본인휴대폰인증 방식을 통한 전자서명을 진행 위한 문자가 카카오 알림톡으로 전송됩니다.</li>
+											<li>5. 전자서명은 휴대폰 본인 인증 및 본인 생년월일 인증을 완료하여야 진행 가능합니다.</li>
+											<li>6. 전자서명은 당사자간의 약정에 따른 서명, 서명날인 또는 기명날인으로서의 효력을 가집니다. (전자서명법 제3조 제3항)</li>
+											<li>7. 전자서명을 한 전자문서는 공인인증기관이 발급한 시점확인(Timestamp)을 첨부하여 저장되며, 이를 통하여 전자문서의 생성시점 및 진본성(위.변조 검증) 확인이 가능합니다.</li>
+										</ol>
+									</li>
+									<li>
+										<strong>전자서명에 따른 고객 안내사항</strong>
+										<ol>
+											<li>1. 전자서명된 내용은 알씨아이파이낸셜서비스 홈페이지(www.renaultcapital.co.kr)를 통해 조회할 수 있습니다.</li>
+											<li>2. 전자서명을 이용한 할부계약 체결시 거래조건에 대한 주요 내용은 우편으로 제공되는 핵심설명서 또는 email로  제공 됩니다.</li>
+										</ol>
+									</li>
+								</ol>
+								<div class="agreeOK">
+									본인은 위 내용에 대해 읽고 이해하였으며, 본인의 의사에 따라 본 내용에 동의합니다.
+									<span class="checkSetWrap">
+										<span class="checkSet"><input type="checkbox" id="1" /><label for="1"><i></i>동의함</label></span>
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="agreeScroll" style="">
+							<h3><strong class="must">(필수)</strong> 개인(신용)정보 필수적 수집,이용에 관한 사항</h3>
+							<div class="txt">
+								<p>귀사와의 (금융)거래와 관련하여 귀사가 본인의 개인(신용)정보를 수집 &middot; 이용하고자 하는 경우에는 [개인정보 보호법] 제15조, 제22조 및 제24조 [신용정보의 이용 및 보호에 관한 법률] 제32조, 제33조 및 제34조에 따라 동의를 얻어야 합니다. 이에 본인은 귀사가 아래의 내용과 같이 본인의 개인(신용)정보를 수집·이용하는데 동의합니다.</p>
+								<ol>
+									<li>
+										<strong>(1) 개인(신용)정보의 수집 &middot; 이용 목적</strong>
+										<ol>
+											<li>① (금융)거래관계의 설정 및 유지 여부 판단, 신청하신 상품/서비스 제공, 법령상 의무이행, 금융사고조사, 분쟁처리, 민원처리 등의 고객관리업무에 활용</li>
+											<li>② 통계분석 및 정책판단의 자료 활용, 신용 관련 모형개발 및 분석을 위한 자료 활용</li>
+											<li>③ 귀사가 본인의 음성 Data를 지속적으로 수집하여 상담 또는 새로운 상거래 신청시, 본인 확인 목적으로 이용</li>
+										</ol>
+									</li>
+									<li>
+										<strong>(2) 수집 &middot; 이용할 개인(신용)정보의 내용</strong>
+										<ol>
+											<li>① 개인식별정보 : 성명, <em>주민(법인)등록번호</em>, 사업자번호, 주민등록증 발급일, 연락처(휴대폰, 자택, 직장),주소(자택,직장), 이메일, 직장명, 부서, 직위, 성별, 국적, <em>운전면허번호, 여권번호, 외국인등록번호,</em> 음성data, <em>국내거소 신고번호</em></li>
+											<li>② 신용거래정보 : 귀사 및 타 금융사의 본 거래 이전 및 이후의 대출, 보증, 담보제공, 신용카드, 할부금융 등 상거래 관련 거래의 종류, 기간, 금액, 이용한도 등 거래 내용을 판단할 수 있는 정보</li>
+											<li>③ 신용도정보 : 신용등급, 신용조회기록, 채무재조정약정, 연체, 부도, 대위변제, 기타 신용질서 문란행위 관련 금액, 발생·해소 시기 등 신용도를 판단할 수 있는 정보</li>
+											<li>④ 신용능력정보 : 재산·채무·소득의 총액, 납세실적 등 신용거래능력을 판단할 수 있는 정보</li>
+											<li>⑤ 공공기관정보 : 개인회생, 파산, 면책, 채무불이행자 등재 등 법원의 재판·결정정보, 체납정보, 주민등록관련정보, 사회보험·공공요금관련정보, 행정처분에 관한 정보 등 본인 식별·신용도 및 거래능력을 판단할 수 있는 공공기관 보유정보</li>
+											<li>⑥ 신용관련정보: 신용등급, 신용평점, 신용평가모형, 개인회생관련 정보 및 신용조회기록 등</li>
+											<li>⑦ 기타 계약 및 서비스의 체결 &middot; 유지 &middot; 이행 &middot; 관리 &middot; 개선 등과 관련하여 본인이 제공한 정보</li>
+										</ol>
+										<p>※ 이하에서는 개인식별정보, 신용거래정보, 신용도정보, 신용능력정보, 공공기관정보, 신용관련정보,기타 계약의 체결 &middot;유지 &middot; 이행 &middot; 관리 &middot; 개선 등과 관련하여 본인이 제공한 정보에 해당하는 각각의 개별정보 명칭은 생략합니다.</p>
+									</li>
+									<li>
+										<strong>(3) 개인(신용)정보의 보유 &middot; 이용 기간</strong>
+										<p class="lightBold"><!--2019-01-04-->거래 종료(채권 &middot; 채무 관계 종료)일로부터 5년이내 (단, 관련법령의 별도 규정이 명시되어 있는 경우 그 기간을 따름)</p>
+									</li>
+								</ol>
+								<div class="agreeOK">
+									본인은 귀사가 상기 목적으로 다음과 같은 본인의 고유식별정보를 처리하는 것에 동의합니다.
+									<span class="checkSetWrap">
+										<span class="checkSet"><input type="checkbox" id="1" /><label for="1"><i></i>동의</label></span>
+										<span class="checkSet"><input type="checkbox" id="2" /><label for="2"><i></i>미동의</label></span>
+									</span>
+									<em>&middot; 고유식별정보 : 주민등록번호, 운전면허번호, 여권번호, 외국인등록번호, 국내거소신고번호</em>
+								</div>
+								<p class="icon">※ 귀하는 동의를 거부할 권리가 있으나, 위 사항에 동의하지 않으실 경우 거래관계의 설정 또는 유지가 불가능 할 수 있음을 알려드립니다.</p>
+							</div>
+						</div>
+						<div class="agreeScroll" style="">
+							<h3><strong class="must">(필수)</strong> 개인(신용)정보 조회에 관한 사항</h3>
+							<div class="txt">
+								<p>
+									[신용정보의 이용 및 보호에 관한 법률] 제32조 제2항 및 [개인정보 보호법] 제24조에 따라 귀사가 아래와 같은 내용으로
+									신용조회회사, 신용정보집중기관으로부터 본인의 신용정보를 조회하거나, 공공기관을 통해 본인임을 확인하는 것에 대하여
+									동의합니다.
+								</p>
+								<ul>
+									<li>조회할 개인(신용)정보 : 개인식별정보, 신용거래정보, 신용도정보, 신용능력정보, 공공기관정보, 신용관련정보</li>
+									<li>조회 목적 : 실명 확인 및 본 계약의 설정 &middot; 유지 및 사후관리 &middot; 신용도판단 및 공공기관의 정책자료로 활용</li>
+									<li>조회동의 효력기간 : 본 계약의 효력이 유지되는 기간 동안 본 동의서는 유효하며, 계약의 갱신 등으로 변경되는 경우에도 유효합니다.</li>
+									<li>조회 대상 기관 : 한국신용정보원(구.전국은행연합회), NICE신용평가정보㈜, 코리아크레딧뷰로㈜</li>
+								</ul>
+								<div class="agreeOK">
+									본인은 귀사가 상기 목적으로 다음과 같은 본인의 고유식별정보를 처리하는 것에 동의합니다.
+									<span class="checkSetWrap">
+										<span class="checkSet"><input type="checkbox" id="1" /><label for="1"><i></i>동의</label></span>
+										<span class="checkSet"><input type="checkbox" id="2" /><label for="2"><i></i>미동의</label></span>
+									</span>
+									<em>&middot; 고유식별정보 : 주민등록번호, 운전면허번호, 여권번호, 외국인등록번호, 국내거소신고번호</em>
+								</div>
+								<p class="icon">※ 귀하는 동의를 거부할 권리가 있으나, 위 사항에 동의하지 않으실 경우 거래관계의 설정 또는 유지가 불가능 할 수 있음을 알려드립니다.</p>
+							</div>
+						</div>
+						<div class="agreeScroll" style="">
+							<h3><strong class="must">(필수)</strong> 개인(신용)정보 필수적 제공에 관한 사항</h3>
+							<div class="txt">
+								<p>
+									이 계약과 관련하여 귀사가 본인으로부터 취득한 개인(신용)정보는 [개인정보보호법] 제17조 및 제22조, 제24조 [신용정보의
+									이용 및 보호에 관한 법률] 제32조, 제33조에 따라 제3자에게 제공할 경우 본인의 사전 동의를 얻어야 합니다. 이에 본인은
+									귀사가 본인의 개인(신용)정보를 아래와 같이 제3자에게 제공하는 것에 동의합니다.
+								</p>
+								<ol>
+									<li>
+										<strong>(1) 신용정보집중기관 및 신용조회회사에 개인(신용)정보 제공 </strong>
+										<ol>
+											<li class="lightBold"><!--2019-01-04-->① 개인(신용)정보를 제공받는 자<br/>
+												<span>신용정보집중기관 : 한국신용정보원(신용정보의 이용 및 보호에 관한 법률 제25조)</span>
+												<span>신용조회회사 : NICE평가정보(주), 코리아크레딧뷰로(주) (신용정보의 이용 및 보호에 관한 법률 제4조)</span>
+											</li>
+											<li class="lightBold"><!--2019-01-04-->② 개인(신용)정보 제공 목적<br/>
+												<span>본인의 신용도 평가, 실명확인 등 신용조회업무, 본 계약 및 본 계약 이전 발생 계약의 유지 또는 사후관리 등</span>
+												<span>신용정보의 집중관리 및 활용 등 신용정보집중기관의 업무</span>
+											</li>
+											<li>③ 제공대상 개인(신용)정보 : 개인식별정보, 신용거래정보, 신용도정보, 신용능력정보, 공공기관 정보, 신용관련정보, 기타 계약의 체결·유지·이행·관리·개선 등과 관련하여 본인이 제공한 정보</li>
+											<li class="lightBold"><!--2019-01-04-->④ 제공받는 자의 개인(신용)정보 보유 및 이용기간<br/>
+												<span>신용정보의 이용 및 보호에 관한 법률 및 관련 규약에 근거한 기간까지</span>
+											</li>
+										</ol>
+									</li>
+									<li>
+										<strong>(2) 거래목적 달성을 위한 개인(신용)정보 제공(업무처리 수탁업체 제공 등)</strong>
+										<ol>
+											<!-- 2020-05-25 자동차 제조사 및 보험가입, 개인정보 제공 목적 수정 -->
+											<li class="lightBold"><!--2019-01-04-->① 개인(신용)정보를 제공받는 자<br/>
+												<span>대출업무 위탁: 할부/리스 모집인(F&amp;I), 중고차할부 제휴사 (㈜아이플랜종합할부, ㈜주원, 현수자동차매매상사, ㈜에스케이 할부, 바로종합할부㈜지엔에이, ㈜우리에이전시, ㈜S.K할부금융, 주식회사 영춘할부, ㈜에이치앤제이컴퍼니,</span>
+												<span>㈜나눔종합할부, ㈜화담, ㈜웨이버스, ㈜삼일오토금융, 우림에이전시, S.K할부금융, 카론, 스타할부, 주식회사 우리나눔, 주식회사 한줄기, 주식회사 호림, 카네이션파이낸셜, 일신컴퍼니 , 다원종합할부금융)</span>
+												<span>자동차 제조사 및 판매사 : 르노삼성자동차㈜, 한국닛산㈜, 에스씨모터스, 신창모터스, 프리 마모터스, C&K모터스, 프리미어 오토, 프리미어 오토모빌, SB오토모빌, SB모터스, M Motors, JS 오토모빌, JS 모터스, TP오토</span>
+												<span>자동차 유지관리 서비스 제공 및 운영 : ㈜카일이잠제스퍼</span>
+												<span>무료제공 보험가입 및 관리 : KB손해보험, BNP파리바카디프손해보험㈜, 알씨아이인슈어런스서비스코리아㈜, 보험개발원, DB손해보험, 현대해상화재보험㈜, 애드인슈, 전국렌터카공제조합 인스밸리</span>
+												<span>전산 시스템 유지 및 운영 : 삼성SDS</span>
+												<span>스코어링 소프트웨어 유지보수: AION Society Ltd</span>
+												<span>고지서 출력, 용지제작 및 봉입발송: ㈜아이투에스</span>
+												<span>전자고지서비스 대행계약: 누리빌, ㈜메이크빌</span>
+												<span>채권추심 대행: 신한신용정보, SG 신용정보, A&D 신용정보, 솔로몬신용정보, 중앙신용정보, KS신용정보, 미래신용정보</span>
+												<span>차량회수 공매: ㈜카옥션, 에이치씨에이에스</span>
+												<span>법조치 접수 대행: 윤재병법무사, 이혁재법무사</span>
+												<span>중고차 할부약정: 에이치씨에이에스</span>
+												<span>법률 자문: 김앤장 법률사무소</span>
+												<span>행랑서비스: 성화기업 택배</span>
+												<span>문서보관 및 파쇄: 통인안전보관</span>
+												<span>잔가보장할부/장기렌터카 차량잔가보장 업무제휴: ㈜유카, ㈜브이디알통상, ㈜더카, ㈜콰트로</span>
+												<span>차량유지보수업무 업무제휴: 알씨아이인슈어런스서비스코리아㈜</span>
+												<span>CMS 출금이체: 사단법인 금융결제원</span>
+												<span>핸드폰 본인 명의 확인: 에스케이텔레콤(주), (주)케이티, LG유플러스(주) 등 통신사, 통신사와 도매제공협정을 체결한 알뜰폰사업자</span>
+												<span>카카오페이인증: (주)카카오페이, (주)스마트솔루션</span>
+												<span>근저당 설정: 온카, (주)오토클릭서비스</span>
+											</li>
+											<!-- 2020-05-25 자동차 제조사 및 보험가입, 개인정보 제공 목적 수정 -->
+											<li class="lightBold"><!--2019-01-04-->② 개인(신용)정보 제공 목적<br/>
+												 <span>국신신차/수입차/중고차의 할부·리스에 의한 차량구입·리콜·금리정산, 신차·수입차제조 및 수입판매업체·중고차 판매업체 및 할부 제휴점 거래, 제휴금융상품(잔가보장 등) 이용 및 공동마케팅 시행에 따른 제휴업체 간 분담비용 정산, 장기렌트카상품 서비스 제공 및 유지관리, 보험패키지 상품 등 연계 제휴 상품 이용에 따른 공동마케팅, 부가서비스의 제공 및 활용, 안내장 및 청구서 등 우편물 발송·반송, 전산 시스템 개발·유지·운영·보수, 스코어링 소프트웨어 유지 보수, 전자 고지서비스 대행, 자동차 공매·이전·등록, 법조치 업무, 신용조사 및 현장실사 업무대행, 중고차 할부 약정, 행랑서비스, 차량 탁송, E-mail발송, 문자서비스 발송, Research수행, 인터넷 관련 서비스 제공, 대출상품 안내 및 권유, 채권추심, 대출 신청 및 심사, 법률자문 및 공증, 사후관리 등에 필요한 각종 민원서류 발급대행, 차량 등 담보물관리/평가, 본인인증, 신청서 등 문서 관리(입력·스캔·보관·폐기), 전화상담, 권원조사/권리조사, 결제대금출금, 사은품·판촉물 발송, 녹취록 작성, 녹취서버 운영, 자동차 대출 제휴카드 발급, 자동차 할부(대출) 중개·알선, 자동차 유지 관리, 사고대차지급, 자동차 리스 중개·알선, 리스 반납차량 처리, 자동차보험 및 사고관리, 과태료/범칙금 처리, 범죄행위 관련 수사·조사 협조, 금융사고방지 등을 위한 공공기관 자료 제출, 핸드폰 본인 명의 확인, 고객 만족도 조사</span>
+											</li>
+											<li>③ 제공대상 개인(신용)정보 : 필수적 수집, 이용에 동의한 개인(신용)정보</li>
+											<li class="lightBold"><!--2019-01-04-->④ 제공받는 자의 개인(신용)정보 보유 및 이용기간 : 위탁계약 종료 시 또는 위탁업무 완료 시<br/>(단, 관련법령의 별도 규정이 명시되어 있는 경우 그 기간을 따름)</li>
+										</ol>
+									</li>
+								</ol>
+								<div class="agreeOK">
+									본인은 귀사가 상기 목적으로 다음과 같은 본인의 고유식별정보를 처리하는 것에 동의합니다.
+									<span class="checkSetWrap">
+										<span class="checkSet"><input type="checkbox" id="1" /><label for="1"><i></i>동의</label></span>
+										<span class="checkSet"><input type="checkbox" id="2" /><label for="2"><i></i>미동의</label></span>
+									</span>
+									<em>&middot; 고유식별정보 : 주민등록번호, 운전면허번호, 여권번호, 외국인등록번호, 국내거소신고번호</em>
+								</div>
+								<p class="icon">※ 귀하는 동의를 거부할 권리가 있으나, 위 사항에 동의하지 않으실 경우 거래관계의 설정 또는 유지가 불가능 할 수 있음을 알려드립니다.</p>
+							</div>
+						</div>
+						<div class="agreeScroll" style="">
+							<h3><strong>(선택)</strong> 개인(신용)정보 선택적 수집.이용에 관한 사항</h3>
+							<div class="txt">
+								<p>귀하는 개인(신용)정보의 선택적인 제공에 대한 동의를 거부할 수 있습니다. 다만, 동의하지 않을 경우에는 상품·서비스 소개 및 권유, 사은행사(경품, 사은품 제공 등), 판촉행사(특판금리 등), 보험상품 안내 등 이용목적에 따른 혜택의 제한이 있을 수 있습니다. 그 밖의 금융거래와 관련된 불이익은 없습니다.</p>
+								<ol>
+									<li>
+										<strong>(1) 금융상품 안내 및 이용권유를 위한 수집, 이용</strong>
+										<span class="checkSetWrap">
+											<span class="checkSet"><input type="checkbox" id="a1" /><label for="a1"><i></i>동의</label></span>
+											<span class="checkSet"><input type="checkbox" id="a2" /><label for="a2"><i></i>미동의</label></span>
+										</span>
+										<ol>
+											<li>① 개인(신용)정보의 수집, 이용 목적 : 귀사 및 제휴사 상품·서비스 안내 및 이용권유, 고객 편의를 위한 사은행사 및 판촉행사, 포인트제공, SMS서비스,E-mail서비스 제공 등의 마케팅 활동,시장조사 및 상품·서비스 연구개발</li>
+											<li>② 수집, 이용할 개인(신용)정보의 내용 : 필수적 수집, 이용에 동의한 개인(신용)정보</li>
+											<li>③ 개인(신용)정보의 보유, 이용기간 : 계약 종료시까지</li>
+										</ol>
+									</li>
+									<li>
+										<strong>(2) 금융상품 이외의 부수서비스 안내 등을 위한 수집, 이용</strong>
+										<span class="checkSetWrap">
+											<span class="checkSet"><input type="checkbox" id="b1" /><label for="b1"><i></i>동의</label></span>
+											<span class="checkSet"><input type="checkbox" id="b2" /><label for="b2"><i></i>미동의</label></span>
+										</span>
+										<ol>
+											<li>① 개인(신용)정보의 수집,이용 목적 : 여신회사의 부수업무 및 신차 판매 안내와 관련한 마케팅 활동</li>
+											<li>② 수집, 이용할 개인(신용)정보의 내용 : 필수적 수집, 이용에 동의한 개인(신용)정보</li>
+											<li>③ 개인(신용)정보의 보유, 이용기간 : 계약 종료시까지</li>
+										</ol>
+									</li>
+								</ol>
+								<div class="agreeOK longCase">  <!-- 2019-01-08 class 추가 -->
+									<strong>이용권유 방법</strong><br/>
+									<span class="checkSetWrap">  <!-- 2019-01-08 위치 변경 -->
+										<span class="checkSet"><input type="checkbox" id="1" /><label for="1"><i></i>전부동의</label></span>
+										(<span class="checkSet"><input type="checkbox" id="1_1" /><label for="1_1"><i></i>전화</label></span>
+										<span class="checkSet"><input type="checkbox" id="1_2" /><label for="1_2"><i></i>문자메세지</label></span>
+										<span class="checkSet"><input type="checkbox" id="1_3" /><label for="1_3"><i></i>서면</label></span>
+										<span class="checkSet"><input type="checkbox" id="1_4" /><label for="1_4"><i></i>이메일</label></span>)
+										<span class="checkSet"><input type="checkbox" id="2" /><label for="2"><i></i>동의하지 않음</label></span>
+									</span>
+									고객님께서 동의하시면 당사가 제공하는 유익한 서비스나 제휴혜택 등을 전화, 휴대폰 문자메시지, 서면, 이메일 등으로 받아보실 수 있습니다.
+									<p class="icon">※ 위 내용에 동의하셨더라도 신용정보의 이용 및 보호에 관한 법률에 따라 이용권유를 목적으로 하는 연락에 대한 중단을 언제든지 요청할 수 있습니다. (대표전화 : 1588-6750 )</p>
+									<p class="icon">※ 상품 변경 안내 등 필수 고지사항은 상기 동의 대상에서 제외됩니다.</p>
+								</div>
+							</div>
+						</div>
+						<div class="agreeScroll" style="">
+							<h3><strong>(선택)</strong> 개인(신용)정보의 선택적 제공에 관한 사항</h3>
+							<div class="txt">
+								<p>귀하는 개인(신용)정보의 선택적인 제공에 대한 동의를 거부할 수 있습니다. 다만, 동의하지 않을 경우에는 상품·서비스 소개 및 권유, 사은행사(경품, 사은품 제공 등), 판촉행사(특판금리 등), 보험상품 안내 등 이용목적에 따른 혜택의 제한이 있을 수 있습니다. 그 밖의 금융거래와 관련된 불이익은 없습니다.</p>
+								<ol>
+									<li>
+										<strong>(1) 생명·손해 보험사·대리점, 광고·마케팅·설문조사대행사, 전기차 충전 멤버십 서비스 업체 및 자동차 유지관리 업체에 제공</strong><!--2020-09-21 수정-->
+										<span class="checkSetWrap">
+											<span class="checkSet"><input class="choicecheckSet6" type="radio" name="agreePopYN6_1" id="agreePopY6_1" value="Y" /><label for="agreePopY6_1"><i></i>동의</label></span>
+											<span class="checkSet"><input class="choicecheckSet6" type="radio" name="agreePopYN6_1" id="agreePopN6_1" value="N" checked /><label for="agreePopN6_1"><i></i>미동의</label></span>
+										</span>
+										<ol>
+											<li class="lightBold"><!-- 2020-05-25 업체추가 -->① 개인(신용)정보를 제공받는 자: 삼성화재해상보험㈜, 한화손해보험㈜, 메리츠화재해상보험㈜, KB손해보험, BNP파리바카디프생명보험㈜, BNP파리바카디프손해보험㈜, 알씨아이인슈어런스서비스 코리아㈜, 보험개발원,</br> DB손해보험, 현대해상화재보험㈜, 애드인슈, 주식회사 AON 리스크 솔루션, 인스밸리, 닐슨코리아, ㈜마더브레인, ㈜지에스엠비즈, ㈜카일이삼제스퍼, ㈜차지비</li><!--2020-09-21 수정-->
+											<li class="lightBold"><!-- 2020-05-25 문구수정 -->② 개인(신용)정보 이용목적 : 새로운 상거래 설정을 위한 청약 및 부가서비스 개발, 손해 및 생명보험사의 보험상품 소개 및 판매, 보험마케팅, 고객관리, 상기목적 TM, 고객설문조사 및 분석, 금융상품 마케팅, 모바일쿠폰 발송, 자동차 유지관리 서비스상품 소개 및 판매, 전기차 충전카드 발송</li><!--2020-09-21 수정-->
+											<li>③ 제공대상 개인(신용)정보 : 개인식별정보, 신용거래정보</li>
+											<li class="lightBold"><!--2019-01-04-->④ 제공받는 자의 개인(신용)정보 보유 및 이용기간 : 제공일로부터 2년까지</li>
+										</ol>
+									</li>
+									<li>
+										<strong>(2) 업무제휴계약을 체결한 제휴 자동차 판매사에 제공</strong>
+										<span class="checkSetWrap">
+											<span class="checkSet"><input class="choicecheckSet6" type="radio" name="agreePopYN6_2" id="agreePopY6_2" value="Y" /><label for="agreePopY6_2"><i></i>동의</label></span>
+											<span class="checkSet"><input class="choicecheckSet6" type="radio" name="agreePopYN6_2" id="agreePopN6_2" value="N" checked /><label for="agreePopN6_2"><i></i>미동의</label></span>
+										</span>
+										<ol>
+											<li class="lightBold"><!--2019-01-04-->① 개인(신용)정보를 제공받는 자 : 르노삼성자동차㈜, 르노삼성자동차㈜ 대리점 및 각 영업사원, 한국닛산㈜, 한국닛산㈜ 대리점 및 각 영업사원</li>
+											<li class="lightBold"><!--2019-01-04-->② 개인(신용)정보 이용목적 : 새로운 상거래 설정을 위한 청약 및 부가서비스 개발, 고객관리 및 분석, 상기목적 TM</li>
+											<li>③ 제공대상 개인(신용)정보 : 개인식별정보, 신용거래정보</li>
+											<li class="lightBold"><!--2019-01-04-->④ 제공받는 자의 개인(신용)정보 보유 및 이용기간 : 제공일로부터 2년까지</li>
+										</ol>
+									</li>
+								</ol>
+								<p class="icon">※ 자세한 제공 업체 및 제공 업체의 변동이 있을 경우 홈페이지를 통해 안내해 드립니다.</p>
+							</div>
+						</div>
+					</div>
+					<div class="btn">
+						<button class="btnLO">취소</button>
+						<button class="btnBO">완료</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //개인정보동의 -->
+
+		<!-- 보험 개인정보동의 -->
+		<div class="dimPop agreePop insuranceCasw" id="agp2" style="display:none;">
+			<div class="popBack">
+				<button class="close">닫기</button>
+				<div class="tt">
+					<h2>개인신용정보 동의서 전문보기</h2>
+				</div>
+				<div class="back">
+					<div class="left">
+						<ul class="agreePList">
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(필수)</strong> 서비스팩 가입동의<i></i></label>
+								</div>
+							</li>
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(필수)</strong> 개인(신용)정보 제공 동의<i></i></label>
+								</div>
+							</li>
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(안내)</strong> BNP 파리바손해보험 행복두배대출상환보험안내<i></i></label>
+								</div>
+							</li>
+							<!-- 2020-03-10 -->
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(안내)</strong> BNP 파리바손해보험 스마트 운전자보험 안내<i></i></label>
+								</div>
+							</li>
+							<li>
+								<div>
+									<input type="checkbox" />
+									<label><strong class="must">(필수)</strong> 보험계약체결 ∙ 이행 등을 위한 필수동의<i></i></label>
+								</div>
+							</li>
+							<!-- //2020-03-10 -->
+						</ul>
+					</div>
+					<div class="right case2"><!-- 2020-03-18 클래스 추가 -->
+						<div class="agreeScroll">
+							<div class="first">개인신용정보동의서를 선택해주세요.<br/>필수 항목인 경우 반드시 전문보기를 진행해야 합니다.</div>
+						</div>
+						<div class="agreeScroll" style="display:none;">
+							<h3><strong class="must">(필수)</strong> 서비스팩 가입동의</h3>
+							<div class="txt">
+								<div class="agreeOK etc1">  <!-- 2019-01-08 class 추가 -->
+									<p>서비스 팩 가입을 위하여 아래 내용에 대한 동의가 필요합니다.</p>
+									<span class="checkSetWrap">
+										<span class="checkSet"><input type="checkbox" id="1" /><label for="1"><i></i>동의함</label></span>
+										<span class="checkSet"><input type="checkbox" id="2" /><label for="2"><i></i>미동의</label></span>
+									</span>
+								</div>
+								<ol>
+									<li>① 신청인 본인(이하 “본인”)은 “(1)가입항목”에서 신청한 각각의 보험료 분할 청구 서비스 신청에 동의합니다.</li>
+									<li>② 본인은 신청한 각각의 보험상품에 대해 보험모집인으로부터 설명을 들은 후 보험회사와 직접 계약을 체결행 함에 동의합니다.</li>
+									<li>③ 본인은 알씨아이파이낸셜서비스코리아(이하 “금융회사”)가 본인을 대신하여 “(1)가입항목”에서 신청한 보험의 보험료를 먼저 부담하여 제휴된 보험회사에 납부하고, 금융회사가 보험료를 본인에게 이자부담 없이 신청인 본인의 할부·리스료와 함게 청구하는 것에 동의합니다. 다만, 본인의 귀책 사유로 서비스비용이 할부·리스 계약과 동일한 지연배상금율이 적용되어 지연배상금이 청구됨에 동의합니다.</li>
+									<li>④ 본인은 청약철회·거절·무효·해지 등으로 보험계약이 정상적으로 체결되지 않는 경우에는 보험회사에서 환급되는 보험료를 금융회사가 수령하여 가입 관련 비용의 상환에 사용하는 것에 동의합니다.</li>
+									<li>⑤ 본인은 자동차보험 분할 청구 서비스를 신청한 경우, 본인이 자동차보험 갱신에 동의할 경우에는 갱신 보험료에 대한 금융회사의 분할청구 서비스도 자동 갱신됨에 동의합니다.</li>
+								</ol>
+							</div>
+						</div>
+						<div class="agreeScroll" style="display:none;">
+							<h3><strong class="must">(필수)</strong> 개인(신용)정보 제공 동의</h3>
+							<div class="txt">
+								<div class="agreeOK longCase">  <!-- 2019-01-08 class 변경 -->
+									<p>보험 상담을 위하여 알씨아이파이낸셜서비스코리아에서 고객님의 성명, 연락처 정보를 아래 보험사에 제공하는 것에 대해 동의합니다.</p>
+									<span class="checkSetWrap">
+										<span class="checkSet"><input type="checkbox" id="3" /><label for="3"><i></i>동의함</label></span>
+										<span class="checkSet"><input type="checkbox" id="4" /><label for="4"><i></i>미동의</label></span>
+									</span>
+								</div>
+								<ol>
+									<li>① 제공받는 자: BNP파리바카디프손해보험(주)</li><!-- 2020-05-25 AXA손해보험 삭제 -->
+									<li>② 제공받는 자의 목적: 보험 가입 상담</li>
+									<li>③ 제공대상 개인 정보: 성명, 생년월일, 휴대폰번호</li>
+									<li>④ 제공 받는 자의 개인정보 보유 및 이용 기간: 각 보험사에서 개인정보 수집·이용에 대한 동의 절차 후 보험사 개인정보 처리 방침에 따름</li>
+								</ol>
+							</div>
+						</div>
+						<div class="agreeScroll" style="display:none;">
+							<h3><strong class="must">(안내)</strong> BNP 파리바손해보험 행복두배대출상환보험안내</h3>
+							<div class="txt">
+								<p>
+									아래 내용은 BNP 파리바카디프손해보험(주) 행복두배대출상환보험 상담 신청을 한 고객을 대상으로 제공하는 정보입니다.<br/>
+									가입대상: 만 19세~보장개시일 기준 만 70세 (법인고객은 가입 대상 제외)
+								</p>
+								<ol>
+									<li>
+										<strong>1. 보험가입과 관련한 유의사항</strong>
+										<ol>
+											<li>1) 이 상품은 알씨아이파이낸셜서비스코리아(이하 ‘회사’라 한다)와 보험사 간의 업무제휴에 따라 '회사'의 대출고객(이하 '고객'이라 한다)을 대상으로 동일한 보장내용으로 설계한 보험 상품으로서, 계약자는 '회사'이며 '고객'을 피보험자로 하고 ‘고객’의 잔여할부금의 상환을 위해 수익자는 '회사'로 합니다.</li>
+											<li>2) 피보험자동차의 사고발생시점을 기준으로 자동차보험의 자기차량손해 담보가 전부보험으로 가입되어 있는 경우에 한하여 “신차가액보장” 및 “차량신규 등록 및 부대비용지원금” 담보가 보장됩니다.</li>
+											<li>3) 직업, 직무 또는 동호회 활동 등으로 주기적으로 이륜자동차를 운전(탑승)하던 중 발생한 사고에 대해서는 보험금이 지급되지 않습니다.</li>
+											<li>4) 보험료는 매월 자동차 대출할부금에 포함하여 청구합니다.</li>
+											<li>5) 이 상품은 만기환급금이 없는 순수보장형 상품입니다. </li>
+										</ol>
+									</li>
+									<li>
+										<strong>2. 보장 내용</strong>
+										<ol>
+											<li>1) 보장지역(대한민국) 내에서 ‘보장기간’ 중 피보험 차량에 급격하고 우연한 물리적 손해를 입어 피보험자가 가입한 자동차 보험에서 ‘전손판정’을 받아 차량의 전부손해(도난, 화재, 침수손해 포함)에 해당하는 경우 자동차보험 전손보험금과 최초 차량구매금액간의 차액을 피보험자에게 보상합니다.</li>
+											<li>2) 교통상해로 피보험자가 사망하거나 후유장해 50% 이상 판정을 확정 받은 경우 피보험자에게 보험가입금액을 한도로 ‘회사’의 잔여할부금을 제외한 나머지 금액을 피보험자 본인 또는 유족에게 보상합니다.</li>
+											<li>3) ‘차량’의 전부손해 발생시 부대비용 100만원을 정액으로 지급합니다.</li>
+										</ol>
+									</li>
+									<li>
+										<strong>3. 보장담보</strong>
+										<div class="etc2">
+											<table border="0" cellpadding="0" cellspacing="0">
+												<colgroup>
+													<col width="30%">
+													<col>
+												</colgroup>
+												<thead>
+													<tr>
+														<th>보 장 명</th>
+														<th>보장 내용 및 금액 (지급기준)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>교통상해 사망</td>
+														<td>‘보장기간’ 중 발생한 급격하고도 우연한 교통 사고 <br/>(이하 ‘교통상해’라 한다)로 ‘고객’이 사망한 경우 4천만원 보장</td>
+													</tr>
+													<tr>
+														<td>신차가액보상</td>
+														<td>차량의 전손사고 발생시 자동차보험 전손사고 보험금 지급금과 <br/>신차구매 금액간의 차액 보장</td>
+													</tr>
+													<tr>
+														<td>교통상해 50% 이상 후유장애</td>
+														<td>‘교통상해’로 ‘고객’이 50%이상 후유장애 판정시 4천만원 보장</td>
+													</tr>
+													<tr>
+														<td>부대비용</td>
+														<td>차량의 전손사고 발생시 100만원 정액 지급</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</li>
+									<li>
+										<strong>4. 고객이 알아야 할 사항</strong>
+										<p>아래 조항은 보험금 지급에 관한 보험약관 내용의 일부를 선별하여 요약한 것이므로 보다 자세한 내용은 보험약관을 필히 확인하시기 바랍니다.</p>
+										<ol>
+											<li>
+												1) 보상하는 손해
+												<ol>
+													<li>ⓐ 보험사는 피보험자가 보험기간 중에 교통상해로 인한(보험기간 중에 발생한 급격하고도 우연한 외래의 사고로 신체(의수, 의족, 의안, 의치등 신체보조장구는 제외하나, 인공장기나 부분 의치등 신체에 이식되어 그 기능을 대신할 경우는 포함)에 입은 상해를 말하며, 이하”상해”라 합니다) 직접결과로써 사망한 경우 (질병으로 인한 사망은 제외), 또는 후유장해 50% 이상 진단을 받은 경우에 보험수익자(보험금을 받는 자)에게 보험증권에 기재된 보험가입금액을 지급합니다.</li>
+													<li>ⓑ 보험사는 피보험자가 피보험자동차를 소유, 사용, 관리하는 동안에 피보험자동차에 전부손해(충돌, 도난, 화재, 침수등)가 발생한 경우 보험가입금액을 지급합니다.</li>
+												</ol>
+											</li>
+											<li>
+												2) 보상하지 않는 손해
+												<ol>
+													<li>ⓐ 보험사는 다음 중 어느 한가지로 보험금 지급사유가 발생한 때에는 보험금을 지급하지 않습니다.<br/>
+														<span>계약자, 피보험자, 보험수익자 등의 고의로 인한 손해</span>
+														<span>피보험자동차에 생긴 흠, 마멸, 부식, 녹, 그 밖의 자연소모로 인한 손해</span>
+														<span>일부 부분품, 부속품, 부속기계장치만의 도난으로 인한 손해</span>
+														<span>지진, 분화 등 천재지변에 의한 손해</span>
+														<span>전쟁, 외국의 무력행사, 혁명, 내란, 사변, 폭동, 소요 및 이와 유사한 사태에 기인한 손해</span>
+													</li>
+													<li>ⓑ 보험사는 다른 약정이 없으면 피보험자가 직업, 직무 또는 동호회 활동으로 아래에 열거된 행위로 인하여 보험금 지급사유가 발생한 때에는 보험금을<br>지급하지 않습니다.<br/>
+														<span>전문등반, 글라이더 조정, 스카이다이빙, 스쿠버다이빙, 행글라이딩, 수상보트, 패러글라이딩</span>
+														<span>모터보트, 자동차 또는 오토바이에 의한 경기, 시범, 흥행(이를 위한 연습을 포함합니다) 또는 시운전</span>
+														<span>선박승무원, 어부, 사공, 그 밖의 선박에 탑승하는 것을 직무로 하는 사람이 직무상 선박에 탑승하고 있는 동안</span>
+													</li>
+												</ol>
+											</li>
+										</ol>
+									</li>
+									<li>
+										<strong>5. 유의 사항</strong>
+										<p>본 프로그램은 ‘회사’와 보험사(BNP파리바손해보험㈜)의 사정에 따라 조건이 변경되거나 중단될 수 있습니다.<br/>
+										대출계약자 변경(승계), 타인에게 차량인도, 대출금액의 중도 전액상환, 할부금융약관 제8조에 의한 기한이익의 상실 등의 사유가 발생하여 ‘회사’와 최초
+										체결한 대출계약의 조건이 변경될 경우 ‘보장기간’에 관계없이 본 프로그램은 종료됩니다.
+										</p>
+									</li>
+								</ol>
+							</div>
+						</div>
+						<!-- 2020-03-10 -->
+						<div class="agreeScroll" style="display:none;">
+							<h3><strong class="must">(안내)</strong> BNP 파리바손해보험 스마트 운전자보험 안내</h3>
+							<div class="txt">
+								<p>
+									아래 내용은 BNP 파리바카디프손해보험(주) 행복두배대출상환보험 상담 신청을 한 고객을 대상으로 제공하는 정보입니다.<br/>
+									가입대상: 만 19세~보장개시일 기준 만 70세 (법인고객은 가입 대상 제외)
+								</p>
+								<ol>
+									<li>
+										<strong>1. 보험가입과 관련한 유의사항</strong>
+										<ol>
+											<li>1) 이 상품은 ‘알씨아이파아낸셜서비스코리아(이하 ‘회사’라 한다)와 ‘BNP파리바카디프손해보험㈜’(이하 ‘보험사’라고 한다)간의 업무제휴에 따라 RCI 대출고객을 대상으로 단체취급특약을 적용하여 동일한 보장내용으로 설계한 상품으로서 가입동의서에 기재되어 있는 담보 및 가입금액의 변경은 불가합니다.</li>
+											<li>2) 이 상품은 교통상해 1급 고객을 대상으로 설계되어 고객의 직업변경으로 인해 교통상해 2급(운전을 직업으로 하는 경우)에 해당하게 되는 경우 사고 발생시 보험금 지급이 제한될 수 있습니다.</li>
+											<li>3) 이륜자동차 운전(탑승)중 사고 발생시에는 “계약전 알릴 의무 위반” 또는 “계약후 알릴 의무 위반”으로 보험금이 지급되지 않습니다.</li>
+											<li>4) 운전자의 실제손해를 보상하는 비용보장담보(자동차운전중사고벌금, 교통사고처리지원금(동승자포함), 중상해교통사고처리지원금(동승자포함), 자동차운전중사고변호사 선임비용)는 가입동의 시점 기준으로 다른 보험에 가입되어 있는 경우 가입이 제한되며, 사고발생 시점 기준으로 다수 보험계약(각종 공제계약을 포함합니다)이 체결되어 있는 경우 보험약관의 보험금 비례분담 조항에 따라 비례보상 합니다.</li>
+											<li>5) 보험료는 매월 자동차 대출할부금에 포함하여 청구합니다.</li>
+											<li>6) 이 상품은 만기환급금이 없는 순수보장형 상품입니다.</li>
+										</ol>
+									</li>
+									<li>
+										<strong>2. 고객이 알아야 할 사항</strong>
+										<ol>
+											<li>1) 계약 전 알릴 의무 및 자필서명<br/>피보험자(고객)는 계약을 청약할 때 회사가 서면으로 질문한 중요한 사항에 대하여 사실대로 기재하고 자필서명을 해야 합니다. 만일 고의 또는 중대한 과실로 중요한 사항에 대하여 사실과 다르게 알린 경우, 회사는 계약을 해지하거나 보장을 제한할 수 있습니다.</li>
+											<li>2) 계약 후 알릴 의무<br/>피보험자(고객)는 계약을 체결한 후 직업(직무)이 변경(자가용운전자가 영업용운전자로 직업변경, 배달원으로 일하게 된 경우등) 되었거나, 이륜자동차(또는 원동기장치자전거)를 계속적으로 사용하게 된 경우에는 즉시 보험회사에 알려야 합니다. 보험회사로 알리지 않은 상태에서 보험사고가 발생한 경우에는 보험금 지급이 제한될 수 있습니다. 다만, 변경된 직업(직무)과 관계없이 보험금 지급사유가 발생하였거나, 이륜자동차(또는 원동기장치 자전거) 사용과 관계 없이 보험금 지급사유가 발생한 경우에는 보험금 지급이 제한되지 않습니다.</li>
+											<li>3) 중도해지 및 가입동의 철회, 보험료의 환급<br/>보험을 중도에 해지(청약일로부터 30일 초과시)하거나 가입동의를 철회(청약일로부터 30일 이내) 하고자 하는 경우에는 알씨아이파이낸셜서비스코리아(콜센터: 1588-6750)로 접수해 주시면 됩니다. 보험계약을 중도해지시 해지환급금은 이미 납입한 보험료 보다 적거나 없을 수 있으며, 보험계약자 또는 피보험자에게 책임이 있으면 경과기간에 대하여 단기요율로 계산한 보험료를 뺀 잔액을 환급해 드립니다. 또한, 보험회사는 계약자, 피보험자, 수익자가 고의로 보험금 지급사유를 발생시켰거나, 보험금 청구시 증거를 위조시에는 해당 사실을 안 날로부터 1개월 이내 계약을 할 수 있습니다. 타인의 사망을 보험금 지급사유로 하는 계약에서 피보험자의 서면에 의한 동의를 얻지 않은 계약이나, 심실상실자 등을 피보험자로 하는 계약은 무효입니다.</li>
+											<li>
+												4) 보험사고 발생시 고객(피보험자, 사망 이외) 또는 고객의 법정상속인(사망담보)이 보험금을 청구할 수 있으며, 보험금 청구 소멸시효는 사고 발생일로부터 3년까지 입니다.
+												<p>(보험금 청구 접수 : BNP파리바 카디프손해보험㈜ 콜센터 1544-2580)</p>
+											</li>
+										</ol>
+									</li>
+									<li>
+										<strong>3. 보장 내용</strong>
+										<div class="etc2">
+											<table border="0" cellpadding="0" cellspacing="0">
+												<colgroup>
+													<col width="20%">
+													<col width="10%">
+													<col width="*">
+												</colgroup>
+												<thead>
+													<tr>
+														<th>담보명</th>
+														<th>가입금액(원)</th>
+														<th>지급사유 (지급기준)</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td>교통상해 사망후유장해</td>
+														<td>1억</td>
+														<td>교통사고로 사망 또는 후유장해시 <br/>-사망 : 1억, 후유장해 : 1억 X 장해분류표에서 정한 지급률</td>
+													</tr>
+													<tr>
+														<td>교통상해 80%이상 후유장해</td>
+														<td>5천만</td>
+														<td>교통사고로 80%이상 후유장해시 : 5천만원</td>
+													</tr>
+													<tr>
+														<td>교통상해 입원일당</td>
+														<td>일 5만</td>
+														<td>교통사고로 입원하여 치료를 받는 경우 입원일수 X 5만원(최초 입원일로부터 180일 한도)</td>
+													</tr>
+													<tr>
+														<td>자동차 교통상해 부상비용</td>
+														<td>40만</td>
+														<td>피보험자가 자동차사고(운전 중/탑승 중/비탑승 중)로 신체에 상해를 입은 경우 자동차 부상등급에 따라<br/>-자동차보험 부상등급 1급~7급 : 보험가입금액의 100% 지급 / -자동차보험 부상등급 8급~14급 : 보험가입금액의 50% 지급</td>
+													</tr>
+													<tr>
+														<td>골절진단비 (치아파절제외)</td>
+														<td>50만</td>
+														<td>상해의 직접결과로써 골절로 진단확정시 1사고당(치아파절제외)</td>
+													</tr>
+													<tr>
+														<td>골절수술비</td>
+														<td>100만</td>
+														<td>상해의 직접결과로써 골절을 입고 그 치료를 직접 목적으로 수술을 받은 경우 1사고당</td>
+													</tr>
+													<tr>
+														<td>화상진단비</td>
+														<td>50만</td>
+														<td>상해의 직접결과로써 심재성 2도 이상의 화상 진단확정시 1사고당</td>
+													</tr>
+													<tr>
+														<td>화상수술비</td>
+														<td>100만</td>
+														<td>상해의 직접결과로써 심재성 2도 이상의 화상으로 진단확정 후 화상치료를 직접 목적으로 수술을 받은 경우 1사고당</td>
+													</tr>
+													<tr>
+														<td>보복운전피해위로금</td>
+														<td>100만</td>
+														<td>피보험자가 “보복운전”의 피해자가 되어 수사기관에 신고, 고소, 고발 등이 접수되고 검찰에 의해 공소제기 또는 기소유예된 경우</td>
+													</tr>
+													<tr>
+														<td>자동차운전중사고벌금</td>
+														<td>2천만</td>
+														<td>자동차 운전 중 사고로 타인의 신체에 상해를 입혀 구속, 공소 제기된 경우 피보험자가 부담하는 벌금액을 1사고당 2,000만원 한도로 지급 (실손보상)</td>
+													</tr>
+													<tr>
+														<td>교통사고처리지원금<br/>(동승자포함)</td>
+														<td>3천만</td>
+														<td>자동차(이륜자동차 제외) 운전 중 사고로 타인(부모, 배우자 및 자녀는 제외)을 사망케 하거나 중대법규위반 사고로 피해자가 42일(6주) 이상 치료를 요한다는 진단을 받은 경우 피보험자가 형사합의금으로 지급한 금액을 피해자 1인당 아래 금액 한도로 지급 (실손보상)<br/>-사망 or 140일 이상 진단시 : 3천만원 / -70일 이상 140일 미만 진단시 : 2천만원 / -42일 이상 70일 미만 진단시 : 1천만원</td>
+													</tr>
+													<tr>
+														<td>중상해교통사고처리지원금<br/>(동승자포함)</td>
+														<td>3천만</td>
+														<td>자동차(이륜자동차 제외)운전 중 일반 교통사고로 타인(부모, 배우자, 자녀는 제외)에게 중상해를 입혀 공소제기 되거나 자배법 시행령 제3조에서 정한 상해급수 1급~3급에 해당하는 부상을 입혀 형사합의를 한 경우, 피보험자가 형사합의금으로 지급한 금액을 피해자 1인당 3천만원 한도로 지급 (실손보상)</td>
+													</tr>
+													<tr>
+														<td>자동차운전중사고<br/>변호사선임비용</td>
+														<td>5백만</td>
+														<td>자동차 운전 중 사고로 타인의 신체에 상해를 입혀 구속, 공소 제기된 경우 실제 부담한 변호사 선임비용을 1사고당 500만원 한도에서 지급 (실손보상)</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</li>
+									<li>
+										<strong>5. 유의 사항</strong>
+										<p>∙ 본 프로그램은 ‘회사’와 보험사(BNP파리바손해보험㈜)의 사정에 따라 조건이 변경되거나 중단될 수 있습니다.<br/>
+										∙ 대출계약자 변경(승계), 타인에게 차량인도, 대출금액의 중도 전액상환, 할부금융약관 제8조에 의한 기한이익의 상실 등의 사유가 발생하여 ‘회사’와 최초
+										체결한 대출계약의 조건이 변경될 경우 ‘보장기간’에 관계없이 본 프로그램은 종료됩니다.
+										</p>
+									</li>
+								</ol>
+							</div>
+						</div>
+						<div class="agreeScroll" style="display:none;">
+							<h3><strong class="must">(필수)</strong> 보험계약체결 ∙ 이행 등을 위한 필수동의</h3>
+							<div class="txt">
+								<p>◎ 소비자 권익보호에 관한 사항<br/>본 동의를 거부하시는 경우에는 보험계약 상담 등 정상적인 서비스제공이 불가능하며 본 동의서에 의한 개인(신용) 정보 조회는 귀하의 신용등급에 영향을 주지 않습니다. 또한, 동의하시더라도 BNP파리바카디프손해보험 홈페이지 및 고객센터(1544-2580)를 통해 철회하거나 보험계약상담 목적의 연락에 대한 중단을 요청하실 수 있습니다.</p>
+								<ol>
+									<li>
+										<strong>1. 개인(신용)정보의 수집·이용에 관한 사항</strong>
+										<div class="agreeOK longCase">
+											<p>보험사 및 보험사 업무수탁자는 개인(신용)정보 관련 법률에 따라 귀하의 개인(신용)정보를 다음과 같이 수집 · 이용 하고자 합니다. 이에 대하여 동의하십니까?</p>
+											<span class="checkSetWrap">
+												<span class="checkSet"><input type="checkbox" id="5" /><label for="5"><i></i>동의함</label></span>
+												<span class="checkSet"><input type="checkbox" id="6" /><label for="6"><i></i>미동의</label></span>
+											</span>
+										</div>
+										<ul>
+											<li>개인(신용)정보의 수집·이용 목적
+												<ul>
+													<li>보험계약 상담, 보험계약 인수여부 결정을 위한 판단, ‘실제 발생하는 손해만을 보상하는 실손형 보험’ 의 중복가입 확인을 위한 보험가입내역 조회</li>
+												</ul>
+											</li>
+											<li>수집·이용할 개인(신용)정보의 내용
+												<ul>
+													<li>개인식별정보 (성명, 주민등록번호, 외국인등록번호, 주소, 직업, 전화번호, 전자우편주소)</li>
+													<li>질병 및 상해에 관한 정보</li>
+													<li>당사, 신용정보집중기관 및 보험요율산출기관에서 수집·관리하는 보험계약정보 및 보험금지급 관련 정보 (사고정보 포함)</li>
+												</ul>
+											</li>
+											<li>개인(신용)정보의 보유·이용 기간
+												<ul>
+													<li>이용기간: 수집·이용 동의일로부터 3개월까지</li>
+													<li>보유기간: 수집·이용 동의일로부터 1년까지</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<strong>2. 개인(신용)정보의 조회에 관한 사항</strong>
+										<div class="agreeOK longCase">
+											<p>보험사 및 보험사 업무수탁자는 「신용정보의 이용 및 보호에 관한 법률」에 따라 귀하의 개인(신용)정보를 다음과 같이 신용정보집중기관, 보험요율산출기관 등으로부터 조회하고자 합니다. 이에 대하여 동의하십니까?</p>
+											<span class="checkSetWrap">
+												<span class="checkSet"><input type="checkbox" id="7" /><label for="7"><i></i>동의함</label></span>
+												<span class="checkSet"><input type="checkbox" id="8" /><label for="8"><i></i>동의하지 않음</label></span>
+											</span>
+										</div>
+										<ul>
+											<li>개인(신용)정보의 조회 목적
+												<ul>
+													<li>보험계약상담, 보험계약 인수여부 결정을 위한 판단, 실손의료보험계약 · 기타손해보험계약 등 ‘실제 발생하는 손해만을 보상하는 실손형 보험’ 의 중복가입 확인</li>
+												</ul>
+											</li>
+											<li>조회할 개인(신용)정보의 내용
+												<ul>
+													<li>신용정보집중기관 및 보험요율산출기관에서 수집·관리하는 정보(피보험자의 질병 및 상해에 관한 정보, 보험계약정보, 보험금지급정보)</li>
+												</ul>
+											</li>
+											<li>조회동의 유효 기간 및 조회자(개인(신용)정보를 제공 받은 자)의 보유·이용 기간
+												<ul>
+													<li>동의일로부터 보험계약의 청약시까지(최대 3개월)</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<strong>3. 민감정보 및 고유식별정보의 처리에 관한 사항</strong>
+										<p>보험사 및 보험사 업무수탁자는 개인(신용)정보 관련 법률에 따라 상기의 개인(신용) 정보에 대한 개별 동의사항 에 대하여 다음과 같이 귀하의 민감정보(질병 · 상해정보)및 고유식별정보(주민등록번호 · 외국인등록번호)를 처리(수집 · 이용, 조회, 제공)하고자 합니다. 이에 동의하십니까?</p>
+										<!-- 2020-03-12 수정 -->
+										<div class="agreeOK">질병.상해정보 처리
+											<span class="checkSetWrap">
+												<span class="checkSet"><input type="checkbox" id="9" /><label for="9"><i></i>동의함</label></span>
+												<span class="checkSet"><input type="checkbox" id="10" /><label for="10"><i></i>미동의</label></span>
+											</span>
+										</div>
+										<div class="agreeOK">주민등록번호.외국인등록번호 처리
+											<span class="checkSetWrap">
+												<span class="checkSet"><input type="checkbox" id="11" /><label for="11"><i></i>동의함</label></span>
+												<span class="checkSet"><input type="checkbox" id="12" /><label for="12"><i></i>미동의</label></span>
+											</span>
+										</div>
+										<!-- //2020-03-12 -->
+									</li>
+								</ol>
+							</div>
+						</div>
+						<!-- //2020-03-10 -->
+					</div>
+					<div class="btn">
+						<button class="btnLO">취소</button>
+						<button class="btnBO">완료</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //보험 개인정보동의 -->
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!-- header -->
+			<div id="header">
+				<span class="navBtn"><a href="installment_list.html" class="mnPrev">이전</a></span>
+				<h1><a href="main.html">eSign</a></h1>
+				<h2>할부상담신청</h2>
+				<a href="main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<div class="right">
+					<span class="userInfo"><strong>김르노</strong> 님 <span>안녕하세요.</span></span>
+					<span class="session cyanCase">
+						<strong>26분 30초</strong>
+						<span></span> <!-- time progress bar -->
+					</span>
+					<button class="sesRe">세션연장</button>
+					<a class="btnLogout" href="login.html">로그아웃</a>
+				</div>
+				<span class="btnMSearch"><button>검색</button></span> <!-- 모바일의 검색버튼 -->
+			</div>
+			<!-- //header -->
+			<!-- SNB : 상세화면에서는 생략 -->
+			<!-- container -->
+			<div id="container" class="o-wrapper ismEndCase">
+				<div class="content">
+					<section>
+						<div class="ismTop">
+							<div>
+								<h3><em>신청번호</em>e201901000006</h3>
+								<span>
+									<dl>
+										<dt>할부상담신청일자</dt>
+										<dd>2018-02-13</dd>
+									</dl>
+									<dl>
+										<dt>고객명</dt>
+										<dd>홍길동</dd>
+									</dl>
+									<dl>
+										<dt>진행상태</dt>
+										<dd>진행상태</dd>
+									</dl>
+								</span>
+							</div>
+						</div>
+						<!-- tab-wrap -->
+						<div class="tab-wrap">
+							<!-- tab -->
+							<div class="tab">
+								<nav>
+									<ul>
+										<li class="on"><a data-name="step5">할부상담신청서</a></li>
+										<li><a data-name="step3">개인신용정보동의서</a></li>
+										<li><a data-name="stepInsurance">보험신청서</a></li>
+									</ul>
+								</nav>
+							</div>
+							<!--// tab -->
+							<!-- Installment Layout -->
+							<div class="tabCon">
+								<div class="ismDetail">
+									<!-- step5 -->
+									<div class="tabData step5">
+										<!-- 아래의 신청서를 작성해 주세요  -->
+										<h4 class="ismTit">
+											필수 신청정보
+											<em>필수 정보의 경우 자동으로 입력되며 수정이 불가능합니다.</em>
+										</h4>
+										<div class="gridSet grid3 ismWrite txtCase endCase">
+											<div class="gridItem">
+												<dl>
+													<dt>성명 <sup>필수항목</sup></dt>
+													<dd>홍길동</dd>
+												</dl>
+											</div>
+											<div class="gridItem">
+												<dl>
+													<dt>생년월일 <sup>필수항목</sup></dt><!--2019-01-04-->
+													<dd>000000-*******</dd>
+												</dl>
+											</div>
+											<div class="gridItem">
+												<dl>
+													<dt>휴대전화 <sup>필수항목</sup></dt>
+													<dd>000-0000-0000</dd>
+												</dl>
+											</div>
+										</div>
+										<!-- <h4 class="ismTit emLongCase">2019-01-04
+											선택 신청정보 <em>자동이체 계좌 및 결제일변경은 약정입력 단계에서 할부담당자(F&I)를 통해 변경 가능합니다.</em>2019-01-04
+										</h4>
+										<div class="gridSet grid3 ismWrite txtCase">
+											<div class="gridItem">
+												<dl>
+													<dt>예금주명</dt>
+													<dd>홍길동</dd>
+												</dl>
+											</div>
+											<div class="gridItem">
+												<dl>
+													<dt>휴대전화</dt>
+													<dd>000-0000-0000</dd>
+												</dl>
+											</div>
+											<div class="gridItem">
+												<dl>
+													<dt>결제일</dt>
+													<dd>25일</dd>
+												</dl>
+											</div>
+										</div>
+										<div class="gridSet grid2-33 ismWrite pt10 txtCase">
+											<div class="gridItem">
+												<dl>
+													<dt>은행 명</dt>
+													<dd>국민은행</dd>
+												</dl>
+											</div>
+											<div class="gridItem">
+												<dl>
+													<dt>계좌번호</dt>
+													<dd>000000000000</dd>
+												</dl>
+											</div>
+										</div> -->
+										<h4 class="ismTit">
+											성명 및 서명
+											<strong>신청일자 : 0000-00-00</strong>
+										</h4>
+										<div class="gridSet grid2">
+											<div class="gridItem">
+												<strong class="signTit">신청인</strong>
+												<!---->
+												<div class="signSet">
+													<div class="oKDim">서명이 완료된 신청서입니다</div>
+													<div class="signItem name">
+														<div>
+															<span></span> <!-- 성명이미지가 들어올 영역 -->
+															<strong>홍길동</strong>
+														</div>
+													</div>
+													<div class="signItem">
+														<div>
+															<span></span> <!-- 서명이미지가 들어올 영역 -->
+															<strong>서명</strong>
+														</div>
+													</div>
+												</div>
+												<!--//-->
+											</div>
+											<div class="gridItem">
+												<strong class="signTit">영업사원</strong>
+												<!---->
+												<div class="signSet scaCase">
+													<div class="oKDim">서명이 완료된 신청서입니다</div>
+													<div class="signItem name">
+														<div>
+															<span></span> <!-- 성명이미지가 들어올 영역 -->
+															<strong>김르노</strong>
+														</div>
+													</div>
+													<div class="signItem">
+														<div>
+															<span></span> <!-- 서명이미지가 들어올 영역 -->
+															<strong>서명</strong>
+														</div>
+													</div>
+												</div>
+												<!--//-->
+											</div>
+										</div>
+									</div>
+									<!-- //step5 -->
+									<!-- step3 -->
+									<div class="tabData step3">
+										<!---->
+										<div class="agreeList">
+											<ul>
+												<li>
+													<div>
+														<strong class="must">(필수)</strong> 전자서명 동의서
+														<button class="ok">확인</button>
+													</div>
+												</li>
+												<li>
+													<div>
+														<strong class="must">(필수)</strong> 개인(신용)정보 필수적 수집,이용에 관한 사항
+														<button class="ok">확인</button>
+													</div>
+												</li>
+												<li>
+													<div>
+														<strong class="must">(필수)</strong> 개인(신용)정보 조회에 관한 사항
+														<button class="ok">확인</button>
+													</div>
+												</li>
+												<li>
+													<div>
+														<strong class="must">(필수)</strong> 개인(신용)정보 필수적  제공에 관한 사항
+														<button class="ok">확인</button>
+													</div>
+												</li>
+												<li>
+													<div>
+														<strong>(선택)</strong> 개인(신용)정보 선택적 수집.이용에 관한 사항
+														<button class="ok">확인</button>
+													</div>
+												</li>
+												<li>
+													<div>
+														<strong>(선택)</strong> 개인(신용)정보의 선택적 제공에 관한 사항
+														<button>전문보기</button>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<!---->
+										<div class="agreeForm">
+											<div>
+												<p>본인은 [정보통신망 이용촉진 및 정보보호 등에 관한 법률] 및 [신용정보의 이용 및 보호에 관한 법률]의 규정에 대한 동의서서 내용을 상세히 읽고 충분히 이해하여 이에 동의합니다.</p>
+											</div>
+										</div>
+										<!---->
+										<div class="gridSet grid2 mt2">
+											<div class="gridItem applyDate">
+												<!-- <div>
+													<dl><dt>신청일자</dt><dd>0000-00-00</dd></dl>
+													<dl><dt>생년월일</dt><dd>0000-00-00</dd></dl>
+												</div> -->
+											</div>
+											<div class="gridItem">
+												<strong class="signTit">신청인 성명 및 서명</strong>
+												<!---->
+												<div class="signArea">
+													<div class="signSet">
+														<div class="oKDim">서명이 완료된 신청서입니다</div>
+														<div class="signItem name">
+															<div>
+																<span></span> <!-- 성명이미지가 들어올 영역 -->
+																<strong>홍길동</strong>
+															</div>
+														</div>
+														<div class="signItem">
+															<div>
+																<span></span> <!-- 서명이미지가 들어올 영역 -->
+																<strong>서명</strong>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!--//-->
+											</div>
+										</div>
+									</div>
+									<!-- //step3 -->
+									<!-- insurance -->
+									<div class="tabData stepInsurance">
+										<!--2019-01-03-->
+										<!-- <div class="revision">개정일 : 2018년 11월 1일<br/><strong>알씨아이파이낸셜서비스코리아 귀중</strong></div> -->
+										<p>알씨아이파이낸셜서비스코리아에서는 고객님의 편리한 차량구매를 지원해 드리고자 고객님께서 아래 각각의 항목을 신청하시면 보험 상담을 연계해 드립니다.<br/>
+										보험 가입은 각 보험사에서 직접 진행하며, 고객님께서 신청하신 항목에 대해서만 상담이 진행됩니다.</p>
+										<h4 class="ismTit2"><strong>Ⅰ</strong> 보험 상담 및 서비스팩 가입 신청</h4> <!-- 2019-01-11 -->
+										<p class="pb1">서비스팩은 아래의 보험을 각 보험사와 고객이 직접 계약하고 그 비용을 고객님의 할부·리스 월납입금에 포하하여 분할 청구하는 서비스입니다.</p>
+										<!-- //2019-01-03 -->
+										<!---->
+										<!-- 2020-03-10 -->
+										<div class="agreeList2">
+											<ul>
+												<li>
+													<div class="ckArea">
+														<p>
+															BNP 파리바손해보험 행복두배대출상환보험안내(대출금상환보장프로그램) 가입상담 및 보험료 분할 청구 서비스
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno4" checked id="yesno41" /><label for="yesno41"><i></i>신청함</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno4" id="yesno42" /><label for="yesno42"><i></i>신청하지 않음</label>
+																</span>
+															</span>
+														</p>
+													</div>
+													<div class="agArea pr2">  <!-- 2019-01-08 class 변경 -->
+														운전을 직업으로 하는 고객이 업무 용도가 아닌 출퇴근의 용도로만 차량 구입시 교통상해 2급으로 가입이 가능합니다. <br/>현재 운전을 직업(안내원, 조수, 배달원 등 포함)으로 하고 있습니까?
+														<span class="tRight">
+															<span class="radioSet">
+																<input type="radio" name="yesno5" checked id="yesno51" /><label for="yesno51"><i></i>예</label>
+															</span>
+															<span class="radioSet">
+																<input type="radio" name="yesno5" id="yesno52" /><label for="yesno52"><i></i>아니오</label>
+															</span>
+														</span>
+													</div>
+												</li>
+												<li>
+													<div class="ckArea">
+														<p>
+															BNP파리바손해보험 스마트 운전자보험 가입 상담 및 보험료 분할 청구 서비스
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno3" checked id="yesno31" /><label for="yesno31"><i></i>신청함</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno3" id="yesno32" /><label for="yesno32"><i></i>신청하지 않음</label>
+																</span>
+															</span>
+														</p>
+													</div>
+													<div class="agArea pr2">가입제외 : 운전을 직업으로 하는자(교통상해2급)이거나이륜자동차를 직업, 직무 또는 동호회 활동 등으로 주기적으로 운전하는 중 발생한 사고는 보장하지 않습니다.</div>
+												</li>
+												<li>
+													<div class="ckArea">
+														<p class="bgWhite">
+															위 보험과 관련하여 유첨된 BNP파리바카디 프손해보험 행복두배대출상환보험과 스마트 운전자보험 안내사항’에 대하여 설명을 듣고 이해하였으며, 각 사항에 대하여 동의합니다.
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno4" checked id="yesno41" /><label for="yesno41"><i></i>동의함</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno4" id="yesno42" /><label for="yesno42"><i></i>미동의</label>
+																</span>
+															</span>
+														</p>
+													</div>
+												</li>
+												<!-- <li>
+													<div class="ckArea">
+														<p>
+															AXA 다이렉트 자동차보험 가입 상담 및 보험료 분할 청구 서비스
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno5" checked id="yesno51" /><label for="yesno51"><i></i>신청함</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno5" id="yesno52" /><label for="yesno52"><i></i>신청하지 않음</label>
+																</span>
+															</span>
+														</p>
+													</div>
+												</li> 2020-05-26 삭제 -->
+											</ul>
+										</div>
+										<!-- //2020-03-10 -->
+										<!-- 2019-01-11 -->
+										<!-- <h4 class="ismTit2">
+											<strong>Ⅱ</strong> 운전자 보험 상담 신청 (AXA 마일리지 운전자보험)
+											<span class="tRight">
+												<span class="checkSet">
+													<input type="radio" name="yesno6" checked id="yesno61" /><label for="yesno61"><i></i>신청함</label>
+												</span>
+												<span class="checkSet">
+													<input type="radio" name="yesno6" id="yesno62" /><label for="yesno62"><i></i>신청하지 않음</label>
+												</span>
+											</span>
+										</h4>
+										<p class="pb1">고객님께서 신청하실 경우, 운전자보험 상담이 가능하도록 보험사를 연결해 드립니다. 보험 계약이 체결될 경우, 보험료는 고객님께서 보험사에 직접 납부해야 합니다.</p> 2020-05-25 삭제 -->
+										<!-- //2019-01-11 -->
+										<!--
+										<div class="agreeList2">
+											<ul>
+												<li class="last">
+													<div class="ckArea">
+														<p>
+															운전자 보험 상담 신청 (AXA 마일리지 운전자 보험)
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno6" checked id="yesno61" /><label for="yesno61"><i></i>신청함</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno6" id="yesno62" /><label for="yesno62"><i></i>신청하지 않음</label>
+																</span>
+															</span>
+														</p>
+													</div>
+													<div class="agArea">
+														고객님께서 신청하실 경우, 운전자보험 상담이 가능하도록 보험사를 연결해 드립니다. 보험 계약이 체결될 경우, 보험료는 고객님께서 보험사에 직접 납부해야 합니다.
+													</div>
+												</li>
+											</ul>
+										</div> -->
+										<!---->
+										<div class="agreeForm">
+											<div>
+												<p>본인은 [정보통신망 이용촉진 및 정보보호 등에 관한 법률] 및 [신용정보의 이용 및 보호에 관한 법률]의 규정에 대한 동의서서 내용을 상세히 읽고 충분히 이해하여 이에 동의합니다.</p>
+												<!-- <span class="right">
+													<button class="btnBO">전체동의</button>
+												</span> -->
+											</div>
+										</div>
+										<!---->
+										<div class="agreeList">
+											<ul>
+												<li>
+													<div>
+														<strong class="must">(필수)</strong> 서비스팩 가입동의
+														<button class="ok">확인</button>
+													</div>
+												</li>
+												<li>
+													<div>
+														<strong class="must">(필수)</strong> 개인(신용)정보 제공 동의
+														<button class="ok">확인</button>
+													</div>
+												</li>
+												<!-- 2020-03-10 -->
+												<li>
+													<div>
+														<strong class="must">(안내)</strong> BNP 파리바손해보험 행복두배대출상환보험안내
+														<button>전문보기</button>
+													</div>
+												</li>
+												<li>
+													<div>
+														<strong class="must">(안내)</strong> BNP파리바손해보험 스마트 운전자보험 안내
+														<button>전문보기</button>
+													</div>
+												</li>
+												<li>
+													<div>
+														<strong class="must">(필수)</strong> 보험계약체결 ∙ 이행 등을 위한 필수동의
+														<button class="ok">확인</button>
+													</div>
+												</li>
+												<!-- //2020-03-10 -->
+											</ul>
+										</div>
+										<!---->
+										<div class="gridSet grid2 mt2">
+											<div class="gridItem applyDate">
+												<!-- <div>
+													<dl><dt>신청일자</dt><dd>0000-00-00</dd></dl>
+													<dl><dt>생년월일</dt><dd>0000-00-00</dd></dl>
+												</div> -->
+											</div>
+											<div class="gridItem">
+												<strong class="signTit">신청인 성명 및 서명</strong>
+												<!---->
+												<div class="signArea">
+													<div class="signSet">
+														<div class="oKDim">서명이 완료된 신청서입니다</div>
+														<div class="signItem name">
+															<div>
+																<span></span> <!-- 성명이미지가 들어올 영역 -->
+																<strong>홍길동</strong>
+															</div>
+														</div>
+														<div class="signItem">
+															<div>
+																<span></span> <!-- 서명이미지가 들어올 영역 -->
+																<strong>서명</strong>
+															</div>
+														</div>
+													</div>
+												</div>
+												<!--//-->
+											</div>
+										</div>
+									</div>
+									<!-- //insurance -->
+								</div>
+								<!---->
+							</div>
+							<!-- //Installment Layout -->
+						</div>
+					</section>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

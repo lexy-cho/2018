@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		$(document).ready(function(){
+			$(".snbRule .btn button").click(function(){
+				$(".appVersion").toggle();
+				$(this).toggleClass('on');
+			}); // 버전정보 토글
+		});
+		</script>
+	</head>
+	<body class="bbsViewCase">
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!-- header -->
+			<div id="header">
+				<span class="navBtn"><a href="guide_list.html" class="mnPrev">이전</a></span>
+				<h1><a href="main.html">eSign</a></h1>
+				<h2>사용자 가이드</h2>
+				<a href="main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<div class="right">
+					<span class="userInfo"><strong>김르노</strong> 님 <span>안녕하세요.</span></span>
+					<span class="session cyanCase">
+						<strong>26분 30초</strong>
+						<span></span> <!-- time progress bar -->
+					</span>
+					<button class="sesRe">세션연장</button>
+					<a class="btnLogout" href="login.html">로그아웃</a>
+				</div>
+				<span class="btnMSearch"><button>검색</button></span> <!-- 모바일의 검색버튼 -->
+			</div>
+			<!-- //header -->
+			<!-- SNB : 상세화면에서는 생략 -->
+			<!-- container -->
+			<div id="container" class="o-wrapper bbsViewCase">
+				<div class="content">
+					<section>
+						<!-- Guide Layout -->
+						<div class="bbsViewLayout">
+							<div class="titArea guideCase">
+								<h3>eSign을 잘 활용하는 방법</h3>
+							</div>
+							<div class="titDate">등록일자: 2000-00-00</div>
+							<div class="htmlArea">
+								가이드 HTML 파일이 노출되는 영역입니다.<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+							</div>
+							<div class="btnPN">
+								<a href="" class="btnLO">이전글</a>
+								<a href="" class="btnBO">다음글</a>
+							</div>
+						</div>
+						<!-- //Guide Layout -->
+					</section>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		$(document).ready(function(){
+			$(".ismBtn .btnBO").click(function(){
+				$(".insurancePop").show();
+			});
+			/*$(".insurancePop .btnLO").click(function(){
+				$(location).attr('href', 'installment_write5.html');
+			});
+			$(".insurancePop .btnBO").click(function(){
+				$(location).attr('href', 'installment_write6.html');
+			});*/
+			$(".signItem").click(function(){
+				$(".signPop").hide();
+				$(".signPop.sp1").show();
+			}); // 서명패드 OPEN
+			$(".scaCase .signItem").click(function(){
+				$(".signPop").hide();
+				$(".signPop.sp2").show();
+			}); // 서명패드 OPEN
+			$(".signPop .guideArea .btn button ").click(function(){
+				$(".signPop .guideArea").hide();
+				$(".signPop .canvasArea").show();
+			}); // 서명패드 - 가이드 CLOSE 패드 OPEN
+			$(".signPop .canvasArea .btn button ").click(function(){
+				$(".signPop").hide();
+				$(".signPop .guideArea").show();
+				$(".signPop .canvasArea").hide();
+			}); // 서명패드 Close
+		});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		
+		<!-- 서명패드 -->
+		<div class="signPop sp1" style="display:none;">
+			<div class="back">
+				<!-- 가이드 -->
+				<div class="guideArea">
+					<div class="guideBg">
+						<div class="popTit">* 화면의 예시와 같이 크게 써주세요</div>
+						<div class="popData">
+							<div class="gridSet">
+								<div class="gridItem">
+									<div class="grayBack">
+										<div class="signPad"> 
+											<!-- <div class="placeBack"><div><strong><img src="images/img_signpad_01.png" alt="" /></strong></div></div> -->
+											<div class="placeBack"><div><strong>홍길동</strong></div></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="btn">
+							<button class="notToday">오늘 다시보지 않음</button>
+							<button class="btnBO">확인</button>
+						</div>
+					</div>
+				</div>
+				<!--// 가이드 -->
+				<!-- 서명 -->
+				<div class="canvasArea" style="display:none;">
+					<div class="popData">
+						<div class="gridSet">
+							<div class="gridItem">
+								<em>신청인 서명</em>
+								<button class="close">서명취소</button> <!-- 2018-12-18 추가 -->
+								<div class="grayBack">
+									<div class="signPad"> 
+										<div class="canvasBack">
+											<canvas class="name"></canvas>
+										</div>
+										<div class="placeBack"><div><strong>홍길동</strong></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="btn">
+						<button class="btnLO">초기화</button> <!-- 2018-12-18 추가 -->
+						<button class="btnLO">이전취소</button> <!-- 2018-12-18 추가 -->
+						<button class="btnBO">완료</button>
+					</div>
+				</div>
+				<!--// 서명 -->
+			</div>
+		</div>
+		<!--// 서명패드 -->
+		
+		<!-- 서명패드 (영업담당자용) -->
+		<div class="signPop sp2" style="display:none;">
+			<div class="back">
+				<!-- 가이드 -->
+				<div class="guideArea">
+					<div class="guideBg">
+						<div class="popTit">* 화면의 예시와 같이 크게 써주세요</div>
+						<div class="popData">
+							<div class="gridSet">
+								<div class="gridItem">
+									<div class="grayBack">
+										<div class="signPad"> 
+											<!-- <div class="placeBack"><div><strong><img src="images/img_signpad_01.png" alt="" /></strong></div></div> -->
+											<div class="placeBack"><div><strong>김르노</strong></div></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="btn">
+							<button class="notToday">오늘 다시보지 않음</button>
+							<button class="btnBO">확인</button>
+						</div>
+					</div>
+				</div>
+				<!--// 가이드 -->
+				<!-- 서명 -->
+				<div class="canvasArea" style="display:none;">
+					<div class="popData">
+						<div class="gridSet">
+							<div class="gridItem">
+								<em>영업사원 서명</em>
+								<button class="close">서명취소</button> <!-- 2018-12-18 추가 -->
+								<div class="grayBack">
+									<div class="signPad"> 
+										<div class="canvasBack">
+											<canvas class="name"></canvas>
+										</div>
+										<div class="placeBack"><div><strong>김르노</strong></div></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="btn">
+						<button class="btnLO">초기화</button> <!-- 2018-12-18 추가 -->
+						<button class="btnLO">이전취소</button> <!-- 2018-12-18 추가 -->
+						<button class="btnBO">완료</button>
+					</div>
+				</div>
+				<!--// 서명 -->
+			</div>
+		</div>
+		<!--// 서명패드 (영업담당자용) -->
+		
+		<!-- 신청완료 후 보험신청여부 팝업 -->
+		<div class="dimPop insurancePop" style="display:none;">
+			<div class="popBack">
+				<div class="popData">
+					<h2>[할부상담신청서 작성완료]</h2>
+					<div>
+						<span>
+							<a href="installment_write6.html" class="goWrite">
+								<strong>보험 신청</strong> 서비스 팩과 운전자보험을 추가 신청하실 수 있습니다. <br/>보험 상품 가입을 진행하시겠습니까?
+							</a>
+							<a href="installment_write5.html" class="goList">
+								<strong>할부상담신청완료</strong> 할부상담신청서의 작성이 완료되었습니다. <br/>신청서를 접수하시고 내역을 확인 하시겠습니까?
+							</a>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--// 신청완료 후 보험신청여부 팝업 -->
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!-- header -->
+			<div id="header">
+				<span class="navBtn"><a href="installment_list.html" class="mnPrev">이전</a></span>
+				<h1><a href="main.html">eSign</a></h1>
+				<h2>할부상담신청</h2>
+				<a href="main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<div class="right">
+					<span class="userInfo"><strong>김르노</strong> 님 <span>안녕하세요.</span></span>
+					<span class="session cyanCase">
+						<strong>26분 30초</strong>
+						<span></span> <!-- time progress bar -->
+					</span>
+					<button class="sesRe">세션연장</button>
+					<a class="btnLogout" href="login.html">로그아웃</a>
+				</div>
+				<span class="btnMSearch"><button>검색</button></span> <!-- 모바일의 검색버튼 -->
+			</div>
+			<!-- //header -->
+			<!-- SNB : 상세화면에서는 생략 -->
+			<!-- container -->
+			<div id="container" class="o-wrapper ismViewCase">
+				<div class="content">
+					<section>
+						<!-- Installment Layout -->
+						<div class="ismViewLayout fullCase3">
+							<!---->
+							<div class="ismTitStep">
+								<!-- <h3>
+									할부신청서
+									<span>아래의 신청서를 작성해 주세요 </span>
+								</h3> -->
+								<div>
+									<span class="pass"><strong>1</strong><em>eSign 가능대상 확인</em></span><!--2019-01-04-->
+									<span class="pass"><strong>2</strong><em>개인정보동의 및 휴대전화 본인인증</em></span>
+									<span class="pass"><strong>3</strong><em>신분증 진위확인</em></span>
+									<span class="on"><strong>4</strong><em>할부상담신청 작성</em></span>
+									<span><strong>5</strong><em>할부상담신청 완료</em></span>
+								</div>
+							</div>
+							<!---->
+							<div class="ismDetail">
+								<!-- step5 -->
+								<div class="step5">   
+									<!-- 아래의 신청서를 작성해 주세요  -->
+									<h4 class="ismTit">
+										필수 신청정보
+										<em>필수 정보의 경우 자동으로 입력되며 수정이 불가능합니다.</em>
+									</h4>
+									<div class="gridSet grid3 ismWrite txtCase endCase">
+										<div class="gridItem">
+											<dl>
+												<dt>성명 <sup>필수항목</sup></dt>
+												<dd>홍길동</dd>
+											</dl>
+										</div>
+										<div class="gridItem">
+											<dl>
+												<dt>생년월일 <sup>필수항목</sup></dt><!--2019-01-04-->
+												<dd>000000-*******</dd>
+											</dl>
+										</div>
+										<div class="gridItem">
+											<dl>
+												<dt>휴대전화 <sup>필수항목</sup></dt>
+												<dd>000-0000-0000</dd>
+											</dl>
+										</div>
+									</div>
+									<!-- <h4 class="ismTit">
+										추가 기입정보
+										<span class="checkSet">
+											<input type="checkbox" name="topsame" id="topsame" /><label for="topsame"><i></i>상기 내용과 동일</label>
+										</span>
+									</h4>
+									<div class="gridSet grid3 ismWrite">
+										<div class="gridItem">
+											<dl>
+												<dt>예금주명</dt>
+												<dd><input type="text" placeholder="이름을 입력해주세요" /></dd>
+											</dl>
+										</div>
+										<div class="gridItem">
+											<dl>
+												<dt>휴대전화</dt>
+												<dd><input type="text" placeholder="숫자로 입력해주세요" /></dd>
+											</dl>
+										</div>
+										<div class="gridItem">
+											<dl>
+												<dt>결제일</dt>
+												<dd>
+													<span class="selectSet labelCase">
+														<select>
+															<option>선택해주세요.</option>
+															<option>5</option>
+															<option>10</option>
+															<option>15</option>
+															<option>21</option>
+															<option>25</option>
+														</select>
+														<label>일</label>
+													</span>
+												</dd>
+											</dl>
+										</div>
+									</div>
+									<div class="gridSet grid2-33 ismWrite pt10">
+										<div class="gridItem">
+											<dl>
+												<dt>은행 명</dt>
+												<dd>
+													<span class="selectSet">
+														<select>
+															<option>선택해주세요.</option>
+															<option>국민은행</option>
+															<option>신한은행</option>
+														</select>
+													</span>
+												</dd>
+											</dl>
+										</div>
+										<div class="gridItem">
+											<dl>
+												<dt>계좌번호</dt>
+												<dd><input type="text" placeholder="숫자로 입력해주세요" /></dd>
+											</dl>
+										</div>
+									</div> -->
+									<h4 class="ismTit">개인정보수집동의</h4>
+									<!---->
+									<div class="agreeList3">
+										<ul>
+											<li>
+												<div class="ckArea">
+													<div>
+														<p><strong class="must">(필수)</strong> 전자서명 동의서</p>  
+														<span class="tRight">
+															<span class="checkSet">
+																<input type="radio" name="yesno4" checked disabled id="yesno41" /><label for="yesno41"><i></i>동의</label>
+															</span>
+															<span class="checkSet">
+																<input type="radio" name="yesno4" disabled id="yesno42" /><label for="yesno42"><i></i>미동의</label>
+															</span>
+														</span>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="ckArea">
+													<div>
+														<p><strong class="must">(필수)</strong> 개인(신용)정보 필수적 수집,이용에 관한 사항 </p>  
+														<span class="tRight">
+															<span class="checkSet">
+																<input type="radio" name="yesno5" checked disabled id="yesno51" /><label for="yesno51"><i></i>동의</label>
+															</span>
+															<span class="checkSet">
+																<input type="radio" name="yesno5" disabled id="yesno52" /><label for="yesno52"><i></i>미동의</label>
+															</span>
+														</span>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="ckArea">
+													<div>
+														<p><strong class="must">(필수)</strong> 개인(신용)정보 조회에 관한 사항</p>  
+														<span class="tRight">
+															<span class="checkSet">
+																<input type="radio" name="yesno6" checked disabled id="yesno61" /><label for="yesno61"><i></i>동의</label>
+															</span>
+															<span class="checkSet">
+																<input type="radio" name="yesno6" disabled id="yesno62" /><label for="yesno62"><i></i>미동의</label>
+															</span>
+														</span>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="ckArea">
+													<div>
+														<p><strong class="must">(필수)</strong> 개인(신용)정보 필수적  제공에 관한 사항</p>  
+														<span class="tRight">
+															<span class="checkSet">
+																<input type="radio" name="yesno7" checked disabled id="yesno71" /><label for="yesno71"><i></i>동의</label>
+															</span>
+															<span class="checkSet">
+																<input type="radio" name="yesno7" disabled id="yesno72" /><label for="yesno72"><i></i>미동의</label>
+															</span>
+														</span>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="ckArea">
+													<div>
+														<p><strong>(선택)</strong> 개인(신용)정보 선택적 수집.이용에 관한 사항</p>  
+													</div>
+													<div class="ckKind">
+														<div>
+															<p>(1) 금융상품 안내 및 이용권유를 위한 수집, 이용</p>  
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno8" checked disabled id="yesno81" /><label for="yesno81"><i></i>동의</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno8" disabled id="yesno82" /><label for="yesno82"><i></i>미동의</label>
+																</span>
+															</span>
+														</div>
+														<div>
+															<p>(2) 금융상품 이외의 부수서비스 안내 등을 위한 수집, 이용</p>  
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno9" checked disabled id="yesno91" /><label for="yesno91"><i></i>동의</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno9" disabled id="yesno92" /><label for="yesno92"><i></i>미동의</label>
+																</span>
+															</span>
+														</div>
+														<div class="etc">
+															<span class="tRight">
+																이용권유 방법
+																<span class="checkSet">
+																	<input type="radio" name="yesno10" checked disabled id="yesno101" /><label for="yesno101"><i></i>전부동의</label>
+																</span>
+																(<span class="checkSet">
+																	<input type="checkbox" name="yesno10" checked disabled id="yesno102" /><label for="yesno102"><i></i>전화</label>
+																</span>
+																<span class="checkSet">
+																	<input type="checkbox" name="yesno10" checked disabled id="yesno103" /><label for="yesno103"><i></i>문자메세지</label>
+																</span>
+																<span class="checkSet">
+																	<input type="checkbox" name="yesno10" checked disabled id="yesno104" /><label for="yesno104"><i></i>서면</label>
+																</span>
+																<span class="checkSet">
+																	<input type="checkbox" name="yesno10" checked disabled  id="yesno105" /><label for="yesno105"><i></i>이메일</label>
+																</span>)
+
+																<span class="checkSet">
+																	<input type="radio" name="yesno10" disabled id="yesno106" /><label for="yesno106"><i></i>동의하지 않음</label>
+																</span>
+															</span>
+														</div>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="ckArea">
+													<div>
+														<p><strong>(선택)</strong> 개인(신용)정보의 선택적 제공에 관한 사항</p>  
+													</div>
+													<div class="ckKind">
+														<div>
+															<p>(1) 손해·생명 보험사 및 광고대행사에 제공</p>  
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno11" checked disabled id="yesno111" /><label for="yesno111"><i></i>동의</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno11" disabled id="yesno112" /><label for="yesno112"><i></i>미동의</label>
+																</span>
+															</span>
+														</div>
+														<div>
+															<p>(2) 업무제휴계약을 체결한 제휴 자동차 판매사에 제공</p>  
+															<span class="tRight">
+																<span class="checkSet">
+																	<input type="radio" name="yesno12" checked disabled id="yesno121" /><label for="yesno121"><i></i>동의</label>
+																</span>
+																<span class="checkSet">
+																	<input type="radio" name="yesno12" disabled id="yesno122" /><label for="yesno122"><i></i>미동의</label>
+																</span>
+															</span>
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<!---->
+									<!---->
+									<h4 class="ismTit">
+										성명 및 서명
+										<strong>신청일자 : 0000-00-00</strong>
+									</h4>
+									<div class="gridSet grid2">
+										<div class="gridItem">
+											<strong class="signTit">신청인</strong>
+											<!---->
+											<div class="signSet">
+												<div class="signItem name">
+													<div>
+														<span><!-- <img src="images/signSample.png"> --></span> <!-- 성명이미지가 들어올 영역 -->
+														<strong>홍길동</strong>
+													</div>
+												</div>
+												<div class="signItem">
+													<div>
+														<span></span> <!-- 서명이미지가 들어올 영역 -->
+														<strong>홍길동</strong>
+													</div>
+												</div>
+											</div>
+											<!--//-->
+										</div>
+										<div class="gridItem">
+											<strong class="signTit">영업사원</strong>
+											<!---->
+											<div class="signSet scaCase">
+												<div class="signItem name">
+													<div>
+														<span><!-- <img src="images/signSample.png"> --></span> <!-- 성명이미지가 들어올 영역 -->
+														<strong>김르노</strong>
+													</div>
+												</div>
+												<div class="signItem">
+													<div>
+														<span></span> <!-- 서명이미지가 들어올 영역 -->
+														<strong>김르노</strong>
+													</div>
+												</div>
+											</div>
+											<!--//-->
+										</div>
+									</div>
+								</div>
+								<!-- //step5 -->
+							</div>
+							<!---->
+							<div class="ismBtn">
+								<a href="installment_list.html" class="btnLO">취소</a>
+								<!-- <a href="installment_write6.html" class="btnBO">다음</a> -->
+								<button class="btnBO">다음</button>
+							</div>
+							<!---->
+						</div>
+						<!-- //Installment Layout -->
+						<p class="notBack">※ 주의 : 안드로이드 계열기기의 경우 [뒤로 돌아가기(BACK)] 버튼을 지원하지 않습니다.</p>
+					</section>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

@@ -1,0 +1,532 @@
+@charset "utf-8";
+
+/* =================================================================================
+* INFORMATION
+* -----------------------------------------------------------------------
+* @File Name: responsive.css
+* @Version: 1.0
+* @Create Date: 2018-11-07
+* @Update Date: N/A
+* @History: N/A
+* ================================================================================= */
+
+/* =============================================================================== */
+/* 세로                                                               */
+/* =============================================================================== */
+
+@media screen and (max-width:1139px){/*2019-07-26 추가 */
+	.tableFs table.gridList tbody tr td i {display:inline-block;width:100%;}
+	.tableFs table.gridList tbody tr td i:after {content:none;}
+}
+
+@media all and (min-width:800px) and (max-width:1023px), screen and (orientation : portrait) {
+	/* 로그인 */
+	.loginBack2 {width:90%;margin:-35% 0 0 -45%;}
+	.loginBack2 .loginV {padding: 0 0 72%;}
+	.loginForm {width:60%;padding: 0 0 64%;}
+	/* 공통 */
+	#header .right .session {margin:0 10px;}
+	#header .right .userInfo span {display:none;}
+	#header .right .sesRe {margin-right:5px;}
+	#header .right .btnLogout {width:5.5rem;padding-left:1rem;background-position:0.6rem center;}
+	/**/
+	.o-wrapper .gridSet.grid3 .gridItem {width:100%;padding:0 0 0.5rem 0;}
+	.o-wrapper .gridSet.grid3 .gridItem:first-child {width:100%;padding:0 0 0.5rem 0;}
+	.o-wrapper .gridSet.grid3 .gridItem:nth-child(2) {padding:0 0 0.5rem 0;}
+	/* 신청 */
+	.step1 .yesnoChoice {width:85%;}
+	.step4 .step4-2 .idBtn {width:90%;}
+	/* .step4 .step4-3 .gridSet .photo {width:76%;float: right;}
+	.step4 .step4-3 .gridSet .photo span.img {margin:0 auto;}
+	.step4 .step4-3 .gridSet .photo .btn {text-align:center;} */
+	.step4 .step4-3 .gridSet {width:100%;}
+	.step4 .step4-3 .ismWrite p {padding:0;text-align:center;}
+	.step4 .step4-3 .gridSet .photo {width:222px;}
+	.step4 .step4-3 .gridSet .photo span.img {width:222px;}
+	.step4 .step4-3 .gridSet .photo span.img em {width:222px;}
+	.step4 .step4-3 .gridSet .photo span.img em img {max-width:222px;}
+	/**/
+	.step5 .gridSet {position:relative;display:inline-block;width:100%;}
+	.step5 .gridItem {position:relative;display:inline-block;width:100%;}
+	.step5 .gridSet.grid2 .gridItem {width:100%;padding:0 0 0.5rem 0;}
+	.step5 .gridSet.grid2 .gridItem:first-child {padding:0 0 0.5rem 0;}
+	.step5 .gridSet.grid2-33 {position:relative;display:table;width:100%;box-sizing:border-box;}
+	.step5 .gridSet.grid2-33 .gridItem {position:relative;display:table-cell;box-sizing:border-box;}
+	.step5 .gridSet.grid2-33 .gridItem:first-child {width:43.4%;padding:0 0.7rem 0 0;}
+	.step5 .gridSet.grid2-33 .gridItem:last-child {width:56.6%;padding:0 0 0 0.5rem;}
+	.step5 .gridSet.grid2-75 .gridItem:first-child {width:100%;}
+	.step5 .gridSet.grid2-75 .gridItem:last-child {width:100%;}
+	/**/
+	.stepEnd .applyInfo {width:66%;margin:0 auto;}
+	.stepEnd .applyInfo .gridSet {position:relative;display:inline-block;width:100%;}
+	.stepEnd .applyInfo .gridSet .gridItem {position:relative;display:inline-block;width:100%;}
+	.stepEnd .applyInfo .gridSet.last {margin-top:0;}
+	/**/
+	.stepInsurance .gridSet.grid2 {position:relative;display:inline-block;width:100%;}
+	.stepInsurance .gridItem {position:relative;display:inline-block;width:100%;}
+	.stepInsurance .gridSet.grid2 .gridItem {width:100%;padding:0 0 0.5rem 0;}
+	.stepInsurance .gridSet.grid2 .gridItem:first-child {padding:0 0 0.5rem 0;}
+	/**/
+	.ismTop div em {display:none}
+	.ismTop dl dt {display:none;}
+	.ismTop dl:first-child dt {display:inline-block;}
+	.ismTop dl:after {margin:29px 0 0 1rem;}
+	.ismTop dl dd {padding-left:1rem;}
+	.ismTop dl:first-child dd {padding-left:0;}
+	.ismDetail .agreeList3 li div.etc {height: 5rem;}
+	.ismDetail .agreeList3 li div.etc .tRight {position:relative;bottom:auto;right:auto;top:auto;width: 100%;text-align:left;box-sizing:border-box;padding:1rem 1rem 0.2rem;}
+	.ismDetail .agreeList2 li div.agArea {padding: 1rem 12rem 1rem 1rem;}
+	/**/
+	.tabCon .tabData .ismTit.emLongCase em {padding:0.5rem 0 0 1.1rem;display:inline-block;width:100%;}
+	.tabData.step3 .gridSet.grid2 {position:relative;display:inline-block;width:100%;}
+	.tabData.step3 .gridItem {position:relative;display:inline-block;width:100%;}
+	.tabData.step3 .gridSet.grid2 .gridItem {width:100%;padding:0 0 0.5rem 0;}
+	.tabData.step3 .gridSet.grid2 .gridItem:first-child {padding:0 0 0.5rem 0;}
+	/* 팝업 */
+	.introPop {width:90%;margin:-20rem 0 0 -45%;}
+	.introPop .pBack {padding: 0 1.8rem;}
+	.introPop.firstCase {height:44rem;margin:-22rem 0 0 -45%;}
+	.introPop.firstCase .col2 {padding:1rem 0 0 1.5rem;}
+	.introPop.firstCase .writeSet dl:nth-child(4) {padding:0 0 2.6rem;}
+	.introPop.firstCase .before .btn {padding:2.8rem 0 0 calc(25% + 10.5rem);}
+	.introPop.firstCase .before .btn .btnLO {float:left;margin-right:5px;}
+	.introPop.firstCase .before .btn .btnBO {width:14rem;}
+	.introPop.findCase .writeSet {width:85%;}
+	.introPop.searchPop .searchList {height:87%;}
+	/**/
+	.agreePop .popBack .left {position:relative;left:auto;top:auto;width:100%;}
+	.agreePop .popBack .right {padding:1rem 1rem 1rem 1rem;height:calc(100vh - 38.8rem);}
+	.agreePop.insuranceCasw .popBack .right {height:calc(100vh - 35.7rem);} /* 2020-03-18 */
+	.agreePop .popBack .back .btn {width:100%;}
+	/**/
+	.signPop .back {width:52rem;margin:-18.7rem 0 0 -26rem;}
+	.boardTop {left:2.636rem;right:2.636rem;}
+	#container.notTabCase.tableFs {left:2.636rem;right:2.636rem;}
+	#container.tableFs .ctTab {left:2.636rem;right:2.636rem;}
+	#container.tableFs .ttTable {left:2.636rem;right:2.636rem;}
+	.tableFs table.gridList thead tr th {padding:0;}
+	.tableFs table.gridList tbody tr td {padding:0;}
+	.listHeader {padding:0;}
+	.dateCase .listWrap {margin:4.15rem 0 0;}
+}
+
+
+/* =============================================================================== */
+/* 모바일 가로 (iPhone X 가로버전 넓이 기준) */
+/* =============================================================================== */
+@media all and (orientation : landscape) and (max-width:820px) {
+}
+
+/* =============================================================================== */
+/* 모바일 세로 (iPhone X 세로버전 넓이 기준) */
+/* =============================================================================== */
+@media all and (max-width:420px), (orientation : landscape) and (max-width:820px) {
+	.required .retxt {position:relative;top:0px;}
+	/* Login & Error Layout */
+	body.loginCase {background:#f3f3f3;}
+	#loginWrap {position:absolute;left:0;right:0;top:0;bottom:0;height:100%;background:#f3f3f3 url('../images/bg_login_black2.png') repeat-x left bottom;background-size:auto 25%;}
+	body.iosCase #loginWrap {position:fixed;}
+	#loginWrap:before {top:0;bottom:auto;width:100%;height:13.13rem;}
+	#loginWrap:after {display:none;}
+	.loginBack2 {top:2.25rem;bottom:2.25rem;left:1.4rem;right:1.4rem;width:auto;margin:0;overflow:hidden;overflow-y:auto;box-shadow:0 0 0.5rem rgba(0,0,0, .2);background:#fff;}
+	body.iosCase .loginBack2 {top:1.4rem;bottom:1.4rem;left:1.4rem;right:1.4rem;}
+	.loginBack2 .loginV {position:relative;left:0;width:auto;height:25%;padding:0 0 0;background:url('../images/bg_login_car.png') no-repeat 0 center;background-size:100% auto !important;}
+	.loginForm {position:absolute;left:0;top:25%;bottom:0;margin-top:0;width:100%;padding:0;text-align:center;box-shadow:none;}
+	.loginForm .valign {padding:2.4rem 3.4rem 0;}
+	.loginForm .useCheck {text-align:left;}
+	.loginForm .btnLogin {margin:0 auto;width:100%;}
+	/**/
+	#header .navBtn * {width:3.582rem;}
+	#header .navBtn .mnOpen {background: url('../images/btn_nav.svg') no-repeat 1.4rem center;background-size:1.364rem auto;}
+	#header .navBtn .mnPrev {background: url('../images/btn_prev.svg') no-repeat 1.4rem center;background-size:0.8rem auto;}
+	#header h1 {display:none;}
+	#header h2 {padding:0 0 0 0.8rem;border:none;}
+	#header .right {display:none;}
+	#snbPannel .snbtop .back .snbUserInfo {padding:1rem 0 1rem;}
+	#snbPannel .snbtop .back .snbUserInfo span {display:inline-block;width:100%;}
+	#container {padding:13.9rem 3.636rem 3.636rem 3.636rem}
+	.mLBack {margin-top:-14.2rem;}
+	#container {position:relative;z-index:1;padding:3.582rem 1.4rem 1.4rem 1.4rem;}
+	/* Exceptions */
+	#container.notTabCase {padding:4.6rem 1.4rem 1.4rem 1.4rem;}
+	#container.notTabCase.tableFs {padding:4.6rem 1.4rem 1.4rem 1.4rem;}
+
+	#container.bbsViewCase {padding:4rem 1.4rem 1.4rem 1.4rem;}
+	#container.ismViewCase {padding:5rem 1.4rem 3.7rem 1.4rem;}
+	#container.ismEndCase {padding:3.2rem 1.4rem 1.4rem 1.4rem;}
+	#container.pwChangeCase {padding:4.6rem 1.4rem 1.4rem 1.4rem;}
+	#container.termsViewCase {padding:4.6rem 1.4rem 1.4rem 1.4rem;}
+	#container.tableFs {padding:3.582rem 1.4rem 1.4rem 1.4rem;}
+	.ismViewLayout.fullCase2 .ismBtn {padding:1.5rem 0 0;}
+	.ismViewLayout.fullCase3 .ismBtn {padding:1.5rem 0 2.5rem;}
+	.passwordChange .ismWrite {padding:1rem 0;}
+	/* Main Layout */
+	.mLBack {padding:0;margin-top:1.1rem;}
+	.mainLayout {height:calc(100vh - 6rem);}
+	.mainLayout div p {font-size:1.4rem;padding: 0 0 1rem;}
+	.mainLayout div p em {font-size:1rem;}
+	.mainLayout div p em.large {font-size:1rem;}
+	.mainLayout div span {padding:0 10% 0;}
+	.mainLayout div span a {position:relative;float:auto;margin:0 0 1rem;padding:1rem 1rem 0 1rem;width:100%;height:15.2rem;font-size:1rem;}
+	.mainLayout div span a:last-child {margin:0 0 0;}
+	.mainLayout div span a:before {width:4rem;height:4rem;}
+	.mainLayout div span a strong {margin:0 0 0.9rem; padding:1.3rem 0 0.9rem;font-size:1.5rem;}
+	/**/
+	/* Main Layout */
+	.mLBack {padding:0;margin-top:1.1rem;}
+	.mainLayout .fs {height:calc(100vh - 6rem);}
+	.mainLayout .fs p {font-size:1.4rem;padding: 0 0 1rem;}
+	.mainLayout .fs p em {font-size:1rem;}
+	.mainLayout .fs p em.large {font-size:1rem;}
+	.mainLayout .fs span {padding:0 10% 0;}
+	.mainLayout .fs span a {position:relative;float:auto;margin:0 0 1rem;padding:1rem 1rem 0 1rem;width:100%;height:15.2rem;font-size:1rem;}
+	.mainLayout .fs span a:last-child {margin:0 0 0;}
+	.mainLayout .fs span a:before {width:4rem;height:4rem;}
+	.mainLayout .fs span a strong {margin:0 0 0.9rem; padding:1.3rem 0 0.9rem;font-size:1.5rem;}
+
+	.gridSet {position:relative;display:inline-block;width:100% !important;}
+	.gridItem {position:relative;display:inline-block;width:100% !important;}
+	.gridSet.grid2 .gridItem {width:100%;padding:0 0 0.5rem 0;}
+	.gridSet.grid2 .gridItem:first-child {padding:0 0 0.5rem 0;}
+	.gridSet.grid3 .gridItem {width:100% !important;padding:0 0 0.5rem 0;}
+	.gridSet.grid3 .gridItem:first-child {width:100% !important;padding:0 0 0.5rem 0 !important;}
+	.gridSet.grid3 .gridItem:nth-child(2) {padding:0 0 0.5rem 0;}
+	.gridSet.grid2-33 .gridItem:first-child {width:100%;padding:0 0 0.5rem 0;}
+	.gridSet.grid2-33 .gridItem:last-child {width:100%;padding:0 0 0.5rem 0;}
+	.gridSet.grid2-75 .gridItem:first-child {width:100%;}
+	.gridSet.grid2-75 .gridItem:last-child {width:100%;}
+	.gridSet.grid7-25 .gridItem:first-child {width:100%;}
+	.gridSet.grid7-25 .gridItem:last-child {width:100%;}
+	.gridSet.grid2-45 .gridItem:first-child {width:100%;}
+	.gridSet.grid2-45 .gridItem:last-child {width:100%;}
+	/**/
+	.btnMSearch {display:inline-block;float:right;}
+	/* .fsSelectbox {display:none;}
+	.fsSelectboxMobile {display:block !important;} */
+
+	.ctTab {top:0;padding:4.6rem 0 0;left:1.4rem;right:1.4rem;background:#fff;}
+	.ctTab div span {height:5rem;}
+	.ctTab div span label {font-size:1rem;word-break:break-all;}
+	.ctTab div span label em  {display:block;}
+	.boardTop {display:none;left:0;right:0;padding:0;height:6.6rem;background:#fff;}
+	.boardTop .line {padding:0 5rem 0 0;height:6.6rem;border:none;border-bottom:1px solid #eee;border-radius:0;}
+	.boardTop.fs .line {padding:0 5rem 0 0;}
+	.boardTop.fs2 .line {padding:0 5rem 0 0;}
+	.boardTop.fs3 .line {padding:0 5rem 0 0;}
+
+	.boardTop .calBack {position:relative;clear:left;width:100%;height:3rem;overflow:hidden;border-bottom:1px solid #eee;}
+	.boardTop .calArea {padding:0.42rem 0 0 0.7rem;}
+	.boardTop .calSet .calInput {width:8.6rem;padding:0 0 0 1.4rem !important;}
+	.boardTop .calArea .term {margin:0.8rem -0.6rem 0 -1rem;}
+	.boardTop .calRe {margin:0.4rem 0 0;width:2.2rem;height:2.2rem;border:1px solid #ddd;background-size:60% auto;}
+	.boardTop .listSearch {clear:left;height:3.3rem;}
+	.boardTop .listSearch input {width:100%;height:100%;padding:0 1rem;box-sizing:border-box;}
+	.boardTop .searchIcon {width:5rem;height:6.6rem;color:#fff;font-size:1.2rem;font-weight:700;text-indent:0;background:#ff7900;}
+	.boardTop .fsSelectbox {width:100%;}
+	.boardTop .fsSelectbox .selectSet {width:49%;}
+	.boardTop .fsSelectbox.threeCase .selectSet {width:32%;}
+	.boardTop .fsSelectbox.threeCase .selectSet:last-child {border-right:0;}
+	.boardTop.fs2 .calBack {margin: 0 0 -0.1rem 0;}
+	.boardTop.fs2 .fsInputbox input {width:5.4rem;height:3.3rem;}
+	.boardTop.fs2 .fsSelectbox {width:calc(100% - 18rem);}
+	.boardTop.fs2 .fsSelectbox .selectSet {width:100%;}
+	.boardTop.fs3 .calBack {margin: 0 0 -0.1rem 0;}
+	.boardTop.fs3 .fsInputbox input {width:5.4rem;height:3.3rem;}
+	.boardTop.fs3 .fsSelectbox {width:100%;}
+	.boardTop.fs3 .fsSelectbox .selectSet {float:left;width:33%;}
+	.pcList {display:none;}
+	.mobileList {display:inline-block;width:100%;}
+	.cardList li {float:none;width:100%;padding:0 0 1rem;box-sizing:border-box;}
+	.cardList li:nth-child(2n+1) {padding:0 0 1rem;}
+	.cardList li a {height:6rem;}
+	.cardList li a em {position:relative;right:auto;top:auto;display:inline-block;padding:0.5rem 0 0 0;}
+
+	.mobileListFs {display:inline-block;width:100%;}
+	.cardListFs li {float:none;width:100%;padding:0 0 1rem;box-sizing:border-box;}
+	.cardListFs li:nth-child(2n+1) {padding:0 0 1rem;}
+	.cardListFs li a {height:6rem;}
+	.cardListFs li a em {position:relative;right:auto;top:auto;display:inline-block;padding:0.5rem 0 0 0;}
+
+	.bbsList li {float:none;width:100%;padding:0 0 1rem;box-sizing:border-box;}
+	.bbsList li:nth-child(2n+1) {padding:0 0 1rem;}
+	.bbsViewLayout .btnPN * {width:50%;height:2.6rem;line-height:2.6rem;}
+	.listWrite {right:1.636rem;bottom:1.636rem;}
+	.listWrite a {width:5rem;height:5rem;}
+	/**/
+	.ismTitStep h3 {display:none;}
+	.ismTitStep div {float:none;}
+	.ismTitStep div span em {font-size: 1.2rem;}
+	.ismTitStep div span strong {width:20px;height:20px;line-height:22px;}
+	.ismTitStep div span strong:after {left:20px;}
+	.ismDetail {padding:0.8rem;}
+	.ismDetail p.large {font-size:1.4rem;}
+	.ismDetail p.middle {font-size:1rem;}
+	.ismDetail .orangeMiddle {font-size: 1.2rem;}
+	.ismDetail .btn span * {margin:0 0;}
+	.ismDetail .btn span .btnLO {width:24%;}
+	.ismDetail .btn span .btnBG, .ismDetail .btn span .btnBO {width:76%;}
+	.ismDetail .agreeList li div {padding:0.6rem 7.6rem 0.6rem 0.6rem;font-size:1rem;line-height:125%;}
+	.ismDetail .agreeList li div button {right:0.6rem;top:0.6rem;width:6.5rem;height:2.3rem;padding:0 0.5rem 0;font-size:1rem;}
+	.ismDetail .agreeList2 li div.agArea {padding:1rem;}
+	.ismDetail .agreeList2 li div.agArea.pr2 {padding-right:1rem;}
+	.ismDetail .agreeList2 li div.ckArea p {padding:0.5rem;font-size:1rem;}
+	.ismDetail .agreeList2 li div.ckArea p .tRight {position:relative;bottom:auto;top:auto;width:100%;padding:0.2rem 1.2rem;box-sizing:border-box;}
+	.ismDetail .agreeList2 li div.ckArea p.bgWhite {padding:0.5rem;} 	/* 2020-03-10 */
+	.ismDetail .agreeList2 li div .tRight {position:relative;bottom:auto;top:auto;padding:0 0 0 1rem;}
+	.ismDetail .agreeList2 li div .tRight .checkSet {margin-left:0;margin-right:1rem;}
+	.ismDetail .agreeList3 li div.ckArea {display:inline-block;width:100%;background: #f1f2f2;}
+	.ismDetail .agreeList3 li div.ckArea p {display:inline-block;padding:0.5rem;height:auto;}
+	.ismDetail .agreeList3 li div.ckArea p strong {font-size:1rem;}
+	.ismDetail .agreeList3 li div .tRight {position:relative;bottom:auto;right:auto;top:auto;width: 100%;text-align:right;box-sizing:border-box;padding:0 1rem 0.2rem;}
+	.ismDetail .agreeList3 li div.etc .tRight {padding:0.2rem 0.2rem 0.2rem 1rem;}
+	.ismDetail .agreeList3 li div.ckArea .ckKind {display:inline-block;box-sizing:border-box;background:#fff;}
+	.ismDetail .agreeList3 li div.ckArea .ckKind p {display:inline-block;padding:0.3rem 1rem 0.3rem 1rem;}
+	.ismDetail .agreeList3 li div.ckArea .ckKind .tRight {position:relative;bottom:auto;right:auto;}
+	.ismDetail .agreeList3 li div.ckArea .ckKind .etc .tRight {text-align:left;}
+	.ismDetail .agreeList3 li div.ckArea .ckKind .etc .tRight .checkSet {margin-left:0.5rem;}
+	.ismTit2 {display:inline-block;width:100%;}
+	.ismTit2 strong {float:left;margin-bottom:0.1rem;}
+	.ismTit2 .tRight {clear:left;display:inline-block;width:100%;padding:0.2rem 0 0;box-sizing:border-box;}
+	.signSet {padding:0.5rem;}
+	.stepEnd .btn span {width:100%;}
+	.stepEnd .btn span * {width:48%;margin:0 1%;}
+	/**/
+	.step1 .yesnoChoice {width:100%;}
+	.step1 .yesnoChoice .btn span {width:100%;}
+	.step1 .yesnoChoice .btn span * {margin:0 0;}
+	.step1 .yesnoChoice li div {padding:0.5rem;height:3rem;line-height:2rem;font-size:1rem;}
+	.step1 .yesnoChoice li:nth-child(1) div,
+	.step1 .yesnoChoice li:nth-child(3) div,
+	.step1 .yesnoChoice li:nth-child(4) div {line-height:150%;}
+	.step1 .yesnoChoice li div span {float:left;}
+	.step4 .step4-2 .idBtn {display:inline-block;width:100%;margin:0 auto;padding:2rem 0 0;}
+	.step4 .step4-2 .idBtn .btn {display:inline-block;padding:0 0 0 0;width:100%;vertical-align:top;}
+	.step4 .step4-2 .idcardSample {display:inline-block;width:18rem;padding:1rem 0 0 0;vertical-align:top;}
+	.step4 .step4-2 .btn span {display:inline-block;width:100%;}
+	.step4 .step4-2 .btn span * {float:left;margin:0 0.1rem 0.5rem !important;}
+	.step4 .step4-2 .btn span .btnLO {width:20% !important;}
+	.step4 .step4-2 .btn span .btnBG, .step4 .step4-2 .btn span .btnBO {width:38.5% !important;}
+	.step4 .step4-2 .truthBox {display:inline-block;}
+	.step4 .step4-2 .truthBox .btn .btnBO,
+	.step4 .step4-2 .truthBox .btn .btnLO {float:none;width:48% !important;}
+	.step4 .step4-3 .gridSet .edit .btn {padding:1rem 0 0 0;text-align:center;}
+	.step4 .step4-3 .gridSet .photo {padding:1rem 0 0.5rem 0;width:100%;text-align:center;}
+	.step4 .step4-3 .gridSet .photo span.img {margin:0 auto;}
+	.step4 .step4-3 .gridSet .photo span.img em {height:135px;}
+	.step4 .step4-3 .gridSet .photo .btn {text-align:center;}
+	/**/
+	.step5 .gridSet.grid2-33 {position:relative;display:inline-block;width:100%;box-sizing:border-box;padding-top:0;}
+	.step5 .gridSet.grid2-33 .gridItem {position:relative;display:inline-block;box-sizing:border-box;}
+	.step5 .gridSet.grid2-33 .gridItem:first-child {width:100%;padding:0 0 0.5rem 0;}
+	.step5 .gridSet.grid2-33 .gridItem:last-child {width:100%;padding:0 0 0.5rem 0;}
+	.stepEnd .applyInfo {width:80%;margin:0 auto;}
+	/**/
+	.tab {position: absolute;left:0;right:0;top:0;width:auto;}
+	.tab ul li {float:left;width:auto;}
+	.tab a {width:auto;padding:2px 1rem 2px 8px;height:32px;line-height:28px;font-size:0.9rem;}
+	.tab a:after {left:auto;right:0;bottom:auto;top:0;border-top:none;border-right:0.8rem solid #fff;border-bottom:32px solid transparent;border-left:none;}
+	.tab ul li.on a:after {left:auto;right:0;bottom:auto;top:0;border-top:none;border-right:0.8rem solid #fff;border-bottom:32px solid transparent;border-left:none;}
+	.tabCon {padding:32px 0 0 0;}
+	.ismTop div {padding:0 0.6rem;}
+	.ismTop div h3 {font-size:1rem;}
+	.ismTop dl:after {margin:29px 0 0 0.5rem;}
+	.ismTop dl:first-child dt {display:none;}
+	.ismTop dl dd {padding-left:0.3rem;font-size:0.9rem;}
+	/**/
+	.passwordChange {width:100%;}
+	.passwordChange .ismWrite div {padding:0 0 1.5rem;}
+	.passwordChange .ismWrite dl dt {display:inline-block;width:100%;height:3rem;padding:1rem 0 0 1rem;border-right:none;border-bottom:1px solid #ddd;}
+	.passwordChange .ismWrite dl dd {display:inline-block;width:100%;}
+	/**/
+	.bbsViewLayout .titArea {display:inline-block;width:100%;}
+	.bbsViewLayout .titArea h3 {display:inline-block;width:100%;height:auto;padding:0.5rem 0 0;font-size:1.2rem;box-sizing:border-box;}
+	.bbsViewLayout .titArea span {display:inline-block;width:100%;padding:0.5rem 0;}
+	.bbsViewLayout .titArea.qnaCase h3 {padding:0.5rem 0 0 3rem;}
+	.bbsViewLayout .titArea.qnaCase:before {top:0;width:2rem;height:2rem;margin:0;line-height:2rem;}
+	.bbsViewLayout .titArea.guideCase h3 {padding:0.5rem 0 0.8rem 0;}
+	.bbsViewLayout .dataArea {padding:1rem 0.5rem 1rem;}
+	.bbsViewLayout .dataArea.qnaCase {padding:1rem 0.5rem 1rem 3.5rem;}
+	.bbsViewLayout .dataArea.qnaCase:before {top:0.5rem;left:0.5rem;width:2rem;height:2rem;margin:0;line-height:2rem;}
+	.bbsViewLayout .htmlArea {padding:1rem 1rem 1rem;}
+	.bbsViewLayout .fileArea {display:inline-block;padding:0.5rem;}
+	.bbsViewLayout .fileArea span {display:inline-block;width:100%;}
+	.bbsViewLayout .fileArea div {display:inline-block;width:100%;}
+	/* Popup Layout */
+	.introPop {position:absolute;top:1.4rem;bottom:1.4rem;left:1.4rem;right:1.4rem;width:auto !important;height:auto !important;margin:0 !important;}
+	body.iosCase .introPop {position:absolute;}
+	.introPop .pTab {padding:1rem 0;}
+	.introPop .pTab div span {width:50%;}
+	.introPop .pBack {padding:0 1.8rem;}
+	.introPop .dataArea .back {padding:1rem 1rem;}
+	.introPop .dataArea p {font-size:0.93rem;}
+	.introPop .after .dataArea .orange {width:100%;}
+	.introPop .after .dataArea .orange p {font-size:1.1rem;}
+	.introPop .after .dataArea .orange strong {font-size:1.3rem;}
+	.introPop .btn {clear:left;display:inline-block;width:100%;}
+	.introPop .btn * {height:3rem;}
+	.introPop .btn .btnLO {width:24% !important;}
+	.introPop .btn .btnBG, .introPop .btn .btnBO {width:74% !important;}
+	.pClose {right:1.4rem;}
+	.introPop .after .btn * {float:none;}
+	/* 아이디/비밀번호찾기 */
+	.introPop.findCase .writeSet {width:100%;}
+	/* 신규인증 */
+	.writeSet dl {display:inline-block;width:100%;padding:0 0 1.3rem;}
+	.writeSet dt {display:inline-block;width:100%;padding-bottom:0.5rem;}
+	.writeSet dd {display:inline-block;width:100%;box-sizing: border-box;}
+	.introPop.firstCase .pData {max-height:calc(100vh - 9rem);overflow:hidden;overflow-y:auto;}
+	.introPop.firstCase .pDBack {padding:1rem 0 0;}
+	.introPop.firstCase .col1 {height:auto;padding:1rem 0 !important;}
+	.introPop.firstCase .col1:before {vertical-align:middle;}
+	.introPop.firstCase .col1 p {padding:0 0 0 1rem;display:inline-block;text-align:left;vertical-align:middle;}
+	.introPop.firstCase .col1:after {top:auto;bottom:0;left:50%;margin:0 0 0 -30px;}
+	.introPop.firstCase .col2 {padding:1rem 0 0.5rem 0;}
+	.introPop.firstCase .before .btn {padding:1.4rem 0 0 0;text-align:center;}
+	.introPop.firstCase .writeSet dl {padding:0 0 0.5rem;}
+	.introPop.firstCase .writeSet dl:nth-child(4) {padding:0 0 0.5rem;}
+	.introPop.firstCase .kind .back div.bCase,
+	.introPop.firstCase .kind .back div.sCase {float:none !important;width:100% !important;}
+	.introPop.firstCase .kind .back div.bCase {margin:0.5rem 0 0;}
+	.introPop.firstCase .welcome strong {display:block;padding:0 0 1.5rem;}
+	/* 아이디/비밀번호찾기 */
+	.introPop.findCase .writeSet div.double {width:100%;height:auto;}
+	.introPop.findCase .writeSet div.double span {width:100%;}
+	.introPop.findCase .writeSet div.double span.last {float:auto;width:100%;}
+	.introPop.findCase .writeSet div.double span.last dt {width:9rem;}
+	.introPop.findCase .writeSet div.double .retxt {padding-left:0;}
+	/**/
+	.agreePop .popBack {top:40px;left:10px;right:10px;bottom:10px;}
+	.agreePop .popBack .back,
+	.agreePop .popBack .agreeForm {left:10px;right:10px;bottom:10px;}
+	/**/
+	.tostPop .popBack {width:90%;margin:-45px 0 0 -45%;}
+	.dimPop.carNumPop .popBack {width:90%;margin:-178px 0 0 -45%;}
+	.dimPop.carNumPop .ismWrite dl dt {width:8.5rem;}
+	.dimPop.insurancePop2 .popBack {width:90%;margin:-159px 0 0 -45%;}
+	.fullPop .tit .close {width:3rem;}
+	/**/
+	.signPop {background:rgba(0,0,0,.8)}
+	.signPop .back {position:absolute;left:15px;top:30%;right:15px;/*bottom:15px;*/width:auto;height:auto;max-height:none;margin:0;background:none;}
+	.signPop .btn .btnLO {width:24%;}
+	.signPop .btn .btnBO {width:40%;}
+	.signPop .gridSet .signPad .placeBack div strong {font-size:6rem;text-indent:0;letter-spacing:0;}
+	.signPop .guideArea .gridSet .signPad .placeBack div strong {font-size:8rem;text-indent:0;letter-spacing:0;}
+
+	#contentFlex, .contentFlex {top:4.5rem;}
+	#container.tableFs .ctTab {left:1.4rem;right:1.4rem;}
+	/* .tableFs .selectSet select {padding:0 0.9rem;} */
+
+	table.gridListFs2 tbody th,
+	table.gridListFs2 tbody td {font-size:1.2rem;}
+}
+
+/* =============================================================================== */
+/* 모바일 가로 (iPhone X 세로버전 넓이 기준) */
+/* =============================================================================== */
+
+@media all and (orientation : portrait) and (max-width:420px) {
+	/**/
+	.dimPop.insurancePop .popBack {top:5%;bottom:5%;height:auto;width:90%;margin:0 0 0 -45%;padding:1rem 2rem 0;}
+	.dimPop.insurancePop .popData {height:auto;}
+	.dimPop.insurancePop .popData div {padding:0 0 0;}
+	.dimPop.insurancePop .popData div span a {float:none;width:100%;padding:1.8rem 1.5rem 0;margin:1.5rem 0 0;font-size:1rem;height:35vh;}
+	.dimPop.insurancePop .popData div span a:before {width:4rem;height:4rem;}
+	.dimPop.insurancePop .popData div span a strong {padding:2rem 0 1rem;}
+	/**/
+	.agreePop .popBack .back .btn {width:100%;padding:0.5rem;}
+	.agreePop .popBack .left {position:relative;left:auto;top:auto;width:100%;}
+	.agreePop .popBack .left li {height:2.7rem;}
+	.agreePop .popBack .left li div {padding:0.3rem 3rem 0.2rem 0.3rem;height:2.2rem;font-size:0.9rem;}
+	.agreePop .popBack .left li div input {height:2.2rem;line-height:2.2rem;}
+	.agreePop .popBack .left li div label i {right:0.5rem;margin-top:-0.7rem;width:1.4rem;height:1.4rem;}
+	.agreePop .popBack .left li div strong {font-size:0.9rem;}
+	.agreePop .popBack .right {padding:0.3rem 0.3rem 0.3rem 0.3rem;height:calc(100vh - 29.5rem);} /* 2020-03-18 */
+	.agreePop .popBack .right.case2 {padding:0.3rem 0.3rem 0.3rem 0.3rem;height:calc(100vh - 26.5rem);} /* 2020-03-18 */
+	.agreePop.insuranceCasw .popBack .right {height:calc(100vh - 26.5rem);} /* 2020-03-18 */
+	.agreePop .popBack .right h3 {padding:0.3rem 0.3rem 0.3rem 0.3rem;}
+	.agreePop .popBack .right .txt ol {line-height:150%;}
+	.agreePop .popBack .right .txt ol ol {padding:5px 0 0 0;}
+	.agreePop .popBack .right .txt ul {padding: 0 0 5px;}
+	.agreePop .popBack .right .txt ul li {line-height:150%;}
+	.agreePop .popBack .right .txt .checkSetWrap {position:relative;right:auto;top:auto;display:inline-block;width:100%;}
+	.agreePop .popBack .right .txt .agreeOK.etc1 p {padding:5px;}
+	.agreePop .popBack .right .txt .etc2 table {font-size:0.9rem;line-height:130%;}
+	.agreePop .popBack .right .txt .etc2 table th {padding:0.2rem 0.2rem;}
+	.agreePop .popBack .right .txt .etc2 table td {padding:0.2rem 0.2rem;}
+	/**/
+	.noticePop .popBack {top:4rem;bottom:5rem;height:auto;width:90%;margin:0 0 0 -45%;padding:0.5rem 0.5rem 0;box-sizing:border-box;}
+	.noticePop .pClose {top:-2.5rem;right:0.4rem;}
+	.noticePop .popData {height:calc(100vh - 10.8rem);overflow-y:scroll;}
+	.noticePop .popData .tt {padding:0.7rem 1.1rem 0.7rem  1.1rem;}
+	.noticePop .popData .detail {padding:0.7rem 0.7rem;}
+	.noticePop .popData .detail p {height:auto;overflow-y:visible;}
+
+	#container.notTabCase.tableFs {left:1rem;right:1rem;}
+	#container.tableFs {padding:11.2rem 1.4rem 1.4rem 1.4rem;}
+}
+/* =============================================================================== */
+/* 모바일 세로 (iPhone X 가로버전 넓이 기준) */
+/* =============================================================================== */
+
+@media all and (orientation : landscape) and (max-width:820px) {
+	.stepEnd .applyInfo .gridSet .gridItem {width:100%;}
+	/**/
+	.dimPop.insurancePop .popBack {top:5%;bottom:5%;height:auto;width:80%;margin:0 0 0 -40%;padding:1rem 1rem 0;}
+	.dimPop.insurancePop .popData h2 {padding:0;}
+	.dimPop.insurancePop .popData div {padding: 0.5rem 0 0;}
+	.dimPop.insurancePop .popData div span a {padding:1.2rem 1.9rem 0;margin:0 1rem;width:44%;height: calc(100vh - 9rem);font-size: 1rem;}
+	.dimPop.insurancePop .popData div span a:last-child {float:right;}
+	.dimPop.insurancePop .popData div span a:before {width:3rem;height:3rem;}
+	.dimPop.insurancePop .popData div span a strong {padding:1.2rem 0 1.1rem;font-size: 1.5rem;}
+	/**/
+	.agreePop .popBack .left {width:17rem;}
+	.agreePop .popBack .left li div {padding:0.3rem 3rem 0.2rem 0.3rem;height:2.2rem;font-size:0.9rem;}
+	.agreePop .popBack .left li div label i {right:0.5rem;margin-top:-0.7rem;width:1.4rem;height:1.4rem;}
+	.agreePop .popBack .left li div strong {font-size:0.9rem;}
+	.agreePop .popBack .right {padding:1rem 1rem 1rem 18rem;}
+	.agreePop .popBack .right .txt .agreeOK {padding:4px 10px 4px 10px;}
+	.agreePop .popBack .right .txt .checkSetWrap {position:relative;top:0;left:0;padding-bottom:5px;display:inline-block;width:100%;text-align:right;}
+	.agreePop .popBack .right .txt ol li .checkSetWrap {position:relative;left:0;}
+	.agreePop .popBack .back .btn {width:17rem;padding:0.5rem;}
+	/**/
+	.noticePop .popBack {position:absolute;top:4rem;bottom:2rem;height:auto;width:90%;margin:0 0 0 -45%;padding:0.5rem 0.5rem 0;box-sizing:border-box;}
+	.noticePop .pClose {top:-2.5rem;right:0.4rem;}
+	.noticePop .popData {height:calc(100vh - 7.5rem);overflow-y:scroll;}
+	.noticePop .popData .tt {padding:0.7rem 1.1rem 0.7rem  1.1rem;}
+	.noticePop .popData .detail {padding:0.7rem 0.7rem;}
+	.noticePop .popData .detail .detailBack {height:auto;overflow-y:visible;}
+	/**/
+	.loginBack2 {bottom:auto;height:100%;}
+	/**/
+	.signPop .back {left:110px;top:15px;right:110px;bottom:15px;}
+
+}
+/* 갤 8 & 갤 9+ 가로버전 서명 대응 */
+@media only screen and (min-resolution: 4dppx) and (orientation : landscape) {
+	.signPop .back {left:170px;top:15px;right:170px;bottom:15px;}
+    .signPop .btn {padding:0.8rem 0 0 0;}
+}
+
+/* iPhone X 가로버전 서명 대응 */
+@media only screen and (min-width: 812px) and (min-resolution: 3dppx) and (orientation : landscape) {
+	.signPop .back {left:160px;top:15px;right:160px;bottom:15px;}
+    .signPop .btn {padding:0.8rem 0 0 0;}
+    .agreePop .popBack .left {position: absolute;left:0;top:0;}
+    .agreePop .popBack .right {height:100%;}
+}
+
+/* 갤탭 S3 & iPad 가로 대응 */
+@media all and (min-width:768px) and (max-width:1024px) and (orientation : portrait) {
+	.step4 .step4-3 .gridSet {width:90%;}
+}
+@media all and (min-width:768px) and (max-width:1024px) and (orientation : landscape) {
+	.loginForm {padding:0 0 52%;}
+	.step4 .step4-3 .gridSet {width:83%;}
+	.step4 .step4-2 .idBtn {width:60%;}
+}
+/* 2020-05-20 */
+@media all and (max-width:600px) {
+	.agreePop .popBack .right .txt .agreeOK {padding:5px;}
+	.agreePop .popBack .right .txt .checkSetWrap {position:relative;right:auto;top:auto;display:inline-block;padding:0.2rem 0;width:100%;}
+}
+/* //2020-05-20 */

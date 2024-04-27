@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		$(document).ready(function(){
+			$(".pClose, .introPop .btnLO, .after .btnBO").click(function(){
+				$(".introPop, .commonPop").hide();
+				$("#blind_wrap").hide();
+			}); // 공지사항 팝업 CLOSE
+
+
+			$("input[name=pTabC]").change(function() {
+				var radioValue = $(this).val();
+				if (radioValue == "01") {
+					$(".tD1").show();
+					$(".tD2").hide();
+				} else if (radioValue == "02") {
+					$(".tD2").show();
+					$(".tD1").hide();
+				}
+				$(".before").show();
+				$(".after").hide();
+			});
+
+			$(".useCheck button").click(function(){
+				$(".introPop.firstCase").show();
+				$(".before").show();
+				$(".after").hide();
+				$(".error").hide();
+			});
+
+			$(".find button").click(function(){
+				$(".introPop.findCase").show();
+				$(".before").show();
+				$(".after").hide();
+				$(".error").hide();
+			});
+
+			$(".before .btnBO").click(function(){
+				$(".before").hide();
+				$(".after").show();
+			});
+
+			$('.overlap').click(function(){
+				$('.overlap button').toggleClass('on');
+				$('.firstCase .before .btnBG').addClass('btnBO');
+				$('.firstCase .before .btnBG').removeClass('btnBG');
+			});
+
+			$(".firstCase .before .btn button:last-child").click(function(){
+				//$(".firstOverlap").show();
+				$(".firstOverlap").hide();
+				$(".firstCase .before").hide();
+				$(".firstCase .after").show();
+			});
+			$(".firstCase .kind .sCase button").click(function(){
+				$(".firstCase").hide();
+				$(".searchPop").show();
+			});
+			$(".searchPop .searchList .btnBO").click(function(){
+				var thisText = $(this).parent("td").siblings("td").text();
+				$(".searchPop").hide();
+				$(".firstCase").show();
+				$(".firstCase .kind .sCase input").val(thisText);
+			});
+
+			/*$(".firstOverlap .btnBO").click(function(){
+				$(".firstOverlap").hide();
+				$(".firstCase .before").hide();
+				$(".firstCase .after").show();
+			});*/
+
+			$(".btnLogin.errorCase").click(function(){
+				$(".error").slideDown();
+				$(this).hide();
+				$(".btnLogin.okCase").show();
+			});
+
+			$(".tostPop .btnBO").click(function(){
+				$(".tostPop").hide();
+			});
+
+			$(".noticePop .pClose").click(function(){
+				$(".dimPop").hide();
+				$(".after").show();
+			});
+
+			// 2019-08-01
+			$("#devicePop01 .btnBO").click(function(){
+				$("#devicePop01").hide();
+				$("#devicePop02").show();
+			});
+			$("#devicePop02 .btnBO").click(function(){
+				$("#devicePop02").hide();
+				$("#devicePop03").show();
+			});
+
+			$("#devicePop03 .btnBO").click(function(){
+				$("#devicePop03").hide();
+				$("#devicePop04").show();
+			});
+
+			$("#devicePop04 .btnBO").click(function(){
+				$("#devicePop04").hide();
+				$("#devicePop05").show();
+			});
+
+			$("#devicePop05 .btnBO").click(function(){
+				$("#devicePop05").hide();
+				$("#devicePop06").show();
+			});
+
+			$("#devicePop06 .btnBO").click(function(){
+				$("#devicePop06").hide();
+				$("#devicePop07").show();
+			});
+
+			$("#devicePop07 .btnBO").click(function(){
+				$("#devicePop07").hide();
+				$("#devicePop08").show();
+			});
+
+			$("#devicePop08 .btnBO").click(function(){
+				$("#devicePop08").hide();
+				$("#devicePop09").show();
+			});
+
+			$("#devicePop09 .btnBO").click(function(){
+				$("#devicePop09").hide();
+				$("#devicePop10").show();
+			});
+
+			$("#devicePop10 .btnBO").click(function(){
+				$("#devicePop10").hide();
+				$(".dimPop").hide();
+			});
+
+			$(".devicePop .btnLO").click(function(){
+				$(".devicePop").hide();
+				$(".dimPop").hide();
+			});
+		});
+		</script>
+	</head>
+	<body class="loginCase">
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+
+		<!-- 2019-10-09 1인1기기 대응 팝업 -->
+		<div class="dimPop" style="">
+
+            <!---->
+            <div class="popBack devicePop" id="devicePop01" style="">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                    <p>이미 등록된 개인기기가 있습니다. <br/>기존의 기기를 해제 하시겠습니까?</p>
+					<div class="deviceSelect">
+						<span class="radioSet"><input type="radio" id="a1" name="a" checked /><label for="a1"><i></i>Phone/iPhone11.6 <em>(등록일:2019-07-01)</em></label></span>
+					</div>
+                    <p>해제를 원하시는 디바이스를 선택한 후 확인을 눌러주세요</p>
+                </div>
+				<div class="btn">
+                    <button class="btnLO">취소</button>
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+            <!--//-->
+
+            <!---->
+            <div class="popBack devicePop" id="devicePop02" style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                    <p>'pk10826'에 등록된 핸드폰 번호로 인증코드를 발송하시겠습니까?</p>
+				</div>
+				<div class="btn">
+                    <button class="btnLO">취소</button>
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+            <!--//-->
+
+            <!-- -->
+            <div class="popBack devicePop" id="devicePop03" style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                    <p>인증 코드를 입력해 주세요.</p>
+					<div class="deviceCode">
+						<input type="text" />
+						<span>00:00</span>
+					</div>
+                </div>
+				<div class="btn">
+                    <button class="btnLO">취소</button>
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+            <!--//-->
+
+            <!---->
+            <div class="popBack devicePop" id="devicePop04"  style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                    <div class="cntTxt">
+						개인기기 등록이 정상처리 되었습니다.
+                    </div>
+                </div>
+				<div class="btn">
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+            <!-- //-->
+
+			<!---->
+			<div class="popBack devicePop" id="devicePop05" style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+				<div class="alertCnt">
+					<p>공공기기로 등록하시겠습니까?</p>
+				</div>
+				<div class="btn">
+					<button class="btnLO">개인기기 등록</button>
+					<button class="btnBO">공용기기 등록</button>
+				</div>
+			</div>
+			<!--//-->
+
+            <!---->
+            <div class="popBack devicePop" id="devicePop06" style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                    <p>이미 등록된 공용기기가 있습니다. <br/>기존의 기기를 해제 하시겠습니까?</p>
+					<div class="deviceSelect">
+						<span class="radioSet"><input type="radio" id="a1" name="a" checked /><label for="a1"><i></i>Phone/iPhone11.6</label></span>
+						<span class="radioSet"><input type="radio" id="a1" name="a" checked /><label for="a1"><i></i>Phone/iPhone11.6</label></span>
+						<span class="radioSet"><input type="radio" id="a1" name="a" checked /><label for="a1"><i></i>Phone/iPhone11.6</label></span>
+					</div>
+                    <p>해제를 원하시는 디바이스를 선택한 후 확인을 눌러주세요</p>
+                </div>
+				<div class="btn">
+                    <button class="btnLO">취소</button>
+					<button class="btnBO">해제</button>
+				</div>
+			</div>
+            <!--//-->
+
+            <!---->
+            <div class="popBack devicePop" id="devicePop07" style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                     <p>인증 코드를 입력해 주세요.</p>
+					<div class="deviceCode">
+						<input type="text" />
+						<span>00:00</span>
+					</div>
+                </div>
+				<div class="btn">
+                    <button class="btnLO">취소</button>
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+            <!--//-->
+
+            <!---->
+            <div class="popBack devicePop" id="devicePop08" style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                    <p>해당기기를 공용패드로 등록합니다. <br/>기기명을 입력해 주세요.</p>
+					<div class="deviceCode">
+						<input type="text" />
+					</div>
+                </div>
+				<div class="btn tCenter">
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+            <!--//-->
+
+            <!---->
+            <div class="popBack devicePop" id="devicePop09" style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                    <p>공용패드 등록이 최소 되었습니다. <br/>개인기기로 등록 하시겠습니까?</p>
+                </div>
+				<div class="btn">
+                    <button class="btnLO">취소</button>
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+            <!--//-->
+
+            <!---->
+            <div class="popBack devicePop" id="devicePop10" style="display:none;">
+				<div class="pTit"><h1>기기 등록</h1></div>
+                <div class="alertCnt">
+                    <div class="cntTxt">
+						공용기기 등록이 정상처리 되었습니다.
+                    </div>
+                </div>
+				<div class="btn">
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+            <!--//-->
+
+			<div class="popBack"  style="display:none;">
+				<div class="popData">
+					<div class="detail">
+						<div class="detailBack">
+						</div>
+					</div>
+				</div>
+				<div class="btn">
+					<button class="btnLO">취소</button>
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+		</div>
+		<!-- //2019-10-09 1인1기기 대응 팝업 -->
+
+		<!-- noticePop 2019-02-28 일부변경-->
+		<div class="dimPop noticePop" style="display:none;">
+			<div class="popBack">
+				<div class="popData">
+					<div class="tt">
+						<h4>2018 서비스 점검에 따른 이용제한</h4>
+						<span>2018-04-04</span>
+					</div>
+					<div class="detail">
+						<div class="detailBack">
+							영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.
+							2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.--------------
+							2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.
+							2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.<br />
+							영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.
+							2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.--------------
+							2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.
+							2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.<br /><br />
+							2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다. 2018 서비스 점검에 따른 이용제한의 상세내용이 노출되는 영역입니다.
+						</div>
+					</div>
+				</div>
+				<button class="pClose">팝업닫기</button>
+				<button class="pNotToday btnLO">하루 안보기</button>
+			</div>
+		</div>
+		<!--// noticePop -->
+
+		<!-- Tost Pop 2018-12-27 -->
+		<div class="dimPop tostPop" style="display:none">
+			<div class="popBack">
+				<div class="popData">
+					<div>
+						5분뒤 섹션이 종료됩니다.
+					</div>
+				</div>
+				<em>본 안내는 5초 후 사라집니다</em>
+				<span><button class="btnBO">닫기</button></span>
+			</div>
+		</div>
+		<!--// Tost Pop 2018-12-27 -->
+
+		<!-- 로그인 실패 팝업 (공통 alert 으로 사용해도 됩니다) -->
+		<div class="dimPop alertPop" style="display:none">
+			<div class="popBack">
+				<div class="popData">
+					<div>
+						<p>존재하지 않았거나 잘못된 정보입니다.<br />아이디와 패스워드를 확인해 주세요.</p> <!-- 아이디 없음  / 비밀번호 틀림  -->
+						<!-- <p>비밀번호 5회 오류로 비밀번호 재설정 진행 후 로그인해 주세요.</p> --> <!-- 비밀번호 5회 이상 틀림 -->
+						<!-- <p>네트워크 연결이 원활하지 않습니다.<br />네트워크 연결을 확인해주시기 바랍니다.</p> --> <!-- 인터넷 연결 끊김 -->
+						<!-- <p>로그인 진행 중 오류가 발생했습니다.<br />잠시 후 다시 시도해주십시오.</p> --> <!-- 서버 에러  -->
+					</div>
+				</div>
+				<div class="btn">
+					<button class="btnLO">취소</button>
+					<button class="btnBO">확인</button>
+				</div>
+			</div>
+		</div>
+		<!--// 로그인 실패 팝업 -->
+
+		<!-- 아이디/비밀번호 찾기 -->
+		<div class="introPop findCase" style="display:none;">
+			<div class="pBack">
+				<div class="pTit"><h1>아이디 찾기/패스워드 초기화</h1></div><!--2019-01-04-->
+				<div class="pData">
+					<nav>
+						<div class="pTab">
+							<div>
+								<span><input type="radio" name="pTabC" id="tD1" value="01" checked /><label for="tD1">아이디 찾기</label></span>
+								<span><input type="radio" name="pTabC" id="tD2" value="02" /><label for="tD2">패스워드 초기화</strong></label></span><!--2019-01-04-->
+							</div>
+						</div>
+					</nav>
+					<!-- 아이디 -->
+					<div class="tabData tD1">
+						<!-- before -->
+						<div class="before">
+							<div class="dataArea">
+								<div class="back">
+									<p>최초 인증 시 입력한 정보를 기입해 주세요. <!-- <br/><em>(정보가 일치할 경우 아이디를 전달 드립니다)</em> 2019-01-04 --></p>
+									<div class="writeSet">
+										<dl>
+											<dt>이름</dt>
+											<dd><input type="text" placeholder="성명을 입력해주세요" /></dd>
+										</dl>
+										<dl>
+											<dt>휴대전화</dt>
+											<dd class="phone required">
+												<span class="selectSet">
+													<select>
+														<option>010</option>
+														<option>011</option>
+														<option>016</option>
+														<option>017</option>
+														<option>018</option>
+														<option>019</option>
+													</select>
+												</span>
+												<input type="text" placeholder="숫자로 입력해주세요" />
+												<span class="retxt">※ 숫자로만 입력해 주세요. / ※ 휴대전화번호 형식에 맞지 않습니다</span>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<div class="btn">
+								<button class="btnLO">취소</button>
+								<button class="btnBO">확인</button>
+							</div>
+						</div>
+						<!-- //before -->
+						<!-- after -->
+						<div class="after" style="display:none;">
+							<div class="dataArea">
+								<div class="back">
+									<div class="welcome"><strong>Thank You!</strong> <br/>회원정보가 확인되었습니다.</div>
+									<div class="orange"><p>홍길동 님의 ID (사원번호)는 다음과 같습니다. <br/><strong>pk000****</strong></p></div>
+									<p>eSign을 이용해 주셔서 감사합니다. </p>
+								</div>
+							</div>
+							<div class="btn">
+								<button class="btnBO">LOGIN 화면으로 이동</button>
+							</div>
+						</div>
+						<!-- //after -->
+					</div>
+					<!-- 비밀번호 -->
+					<div class="tabData tD2" style="display:none;">
+						<!-- before -->
+						<div class="before">
+							<div class="dataArea">
+								<div class="back">
+									<p>최초 인증 시 입력한 정보를 기입해 주세요. <br/><em>(정보가 일치할 경우 패스워드를 알림톡으로 전송해 드립니다.)</em></p><!--2019-01-04-->
+									<div class="writeSet">
+										<div class="double required">
+											<span>
+												<dl>
+													<dt>ID (사원번호)</dt>
+													<dd>
+														<input type="text" placeholder="사번을 입력해 주세요" />
+													</dd>
+												</dl>
+											</span>
+											<span class="last">
+												<dl>
+													<dt>이름</dt>
+													<dd><input type="text" placeholder="성명을 입력해주세요" /></dd>
+												</dl>
+											</span>
+											<span class="retxt">※ 사번ID에 해당하는 이름, 휴대전화번호가 일치하지 않습니다. <br/>RSM에서 사용하는 정보와 동일한 정보를 입력해주세요</span>
+										</div>
+										<dl>
+											<dt>휴대전화</dt>
+											<dd class="phone required">
+												<span class="selectSet">
+													<select>
+														<option>010</option>
+														<option>011</option>
+														<option>016</option>
+														<option>017</option>
+														<option>018</option>
+														<option>019</option>
+													</select>
+												</span>
+												<input type="text" placeholder="숫자로 입력해주세요" />
+												<span class="retxt">※ 숫자로만 입력해 주세요. / ※ 휴대전화번호 형식에 맞지 않습니다</span>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<div class="btn">
+								<button class="btnLO">취소</button>
+								<button class="btnBO">확인</button>
+							</div>
+						</div>
+						<!-- //before -->
+						<!-- after -->
+						<div class="after" style="display:none;">
+							<div class="dataArea">
+								<div class="back">
+									<div class="welcome"><strong>Thank You!</strong> <br/>회원정보가 확인되었습니다.</div>
+									<div class="orange"><p><strong>010-****-6789</strong>  번호로 <br/>임시 패스워드가 발급되었습니다.</p></div>
+									<p>임시 패스워드로 로그인 후,<br/>[패스워드 변경]화면에서 패스워드를 변경해 주세요.</p>
+									<p class="pd0">eSign을 이용해 주셔서 감사합니다.</p>
+								</div>
+							</div>
+							<div class="btn">
+								<button class="btnBO">LOGIN 화면으로 이동</button>
+							</div>
+						</div>
+						<!-- //after -->
+					</div>
+					<!--//-->
+				</div>
+			</div>
+			<button class="pClose">팝업닫기</button>
+		</div>
+		<!-- //아이디/비밀번호 찾기 -->
+
+		<!-- 신규회원 인증 -->
+		<div class="introPop firstCase" style="display:none;">
+			<div class="pBack">
+				<div class="pTit"><h1>회원가입</h1></div><!--2019-01-04-->
+				<div class="pData">
+					<div class="pDBack">
+						<!-- before -->
+						<div class="before">
+							<div class="gridSet grid2">
+								<div class="gridItem col1"><p>기본정보를 입력해 주세요<br/><em>(소속은 RSM에서의 소속정보를 선택해 주세요)</em></p></div>
+								<div class="gridItem col2">
+									<div class="writeSet">
+										<dl>
+											<dt>이름</dt>
+											<dd><input type="text" placeholder="성명을 입력해주세요" /></dd>
+										</dl>
+										<dl>
+											<dt>생년월일</dt>
+											<dd class="age required">
+												<input type="text" placeholder="생년월일을 6자리 숫자로 입력해 주세요" />
+												<span class="sex">
+													<span><input type="radio" name="sex" id="male" value="01" checked /><label for="male">남</label></span>
+													<span><input type="radio" name="sex" id="female" value="02" checked /><label for="female">여</label></span>
+												</span>
+												<span class="retxt">※ 숫자로만 입력해 주세요. <!-- / ※ 휴대전화번호 형식에 맞지 않습니다 / ※ 성별을 선택해 주세요. --></span>
+											</dd>
+										</dl>
+										<dl>
+											<dt>휴대번호</dt>
+											<dd class="required">
+												<input type="text" placeholder="(-)하이픈 없이 숫자로 입력해 주세요" />
+												<span class="retxt">※ 숫자로만 입력해 주세요. <!-- / ※ 휴대전화번호 형식에 맞지 않습니다 --></span>
+											</dd>
+										</dl>
+										<dl>
+											<dt>소속</dt>
+											<dd class="kind required">
+												<div class="back">
+													<!-- <div class="bCase">
+														<label>본부</label>
+														<div class="smselect">
+															<button type="button" class="my_value">선택해주세요.</button>
+															<ul class="a_list">
+																<li>선택해주세요.</li>
+																<li>본부1</li>
+																<li>본부2</li>
+																<li>본부3</li>
+																<li>본부4</li>
+															</ul>
+														</div>
+													</div> 2020-10-29 본부 삭제 -->
+													<div class="sCase">
+														<label>지점</label>
+														<div class="smselect">
+															<input type="text"/>
+														</div>
+														<button>검색</button>
+													</div>
+												</div>
+												<span class="retxt">※ 본부와 지점정보를 선택해 주세요. 없을 경우 기타로 선택해 주세요</span>
+											</dd>
+										</dl>
+										<dl>
+											<dt>ID (사원번호)</dt>
+											<dd class="required">
+												<input type="text" placeholder="사번을 입력해 주세요" />
+												<span class="retxt">※ 사번ID에 해당하는 이름, 휴대전화번호가 일치하지 않습니다. <br/>RSM에서 사용하는 정보와 동일한 정보를 입력해주세요</span>
+											</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+							<div class="btn">
+								<button class="btnLO">취소</button>
+								<button class="btnBO">확인</button>
+							</div>
+						</div>
+						<!-- //before -->
+						<!-- after -->
+						<div class="after" style="display:none;">
+							<div class="dataArea">
+								<div class="back">
+									<div class="welcome"><strong>WELCOME!</strong> <br/>회원 인증이 완료되었습니다.</div>
+									<div class="orange"><p><strong>010-****-0000</strong>번호로<br/> 임시 패스워드가 발급되었습니다.</p></div>
+									<p>임시 패스워드로 로그인 후,<br/>[패스워드 변경]화면에서 패스워드를 변경해 주세요.</p>
+									<p class="pd0">eSign을 이용해 주셔서 감사합니다.</p>
+								</div>
+							</div>
+							<div class="btn">
+								<button class="btnBO">LOGIN 화면으로 이동</button>
+							</div>
+						</div>
+						<!-- //after -->
+					</div>
+				</div>
+			</div>
+			<button class="pClose">팝업닫기</button>
+		</div>
+		<!-- //신규회원 인증 -->
+
+		<!-- 신규회원 중복체크 -->
+		<div class="dimPop firstOverlap" style="display:none;">
+			<div class="popBack">
+				<div class="popData">
+					<p>입력 및 선택한 정보를 확인해주세요.</p>
+					<div>
+						<dl>
+							<dt>이름</dt>
+							<dd>홍길동</dd>
+						</dl>
+						<dl>
+							<dt>생년월일</dt>
+							<dd>1982-xx-xx (남)</dd>
+						</dl>
+						<dl>
+							<dt>소속</dt>
+							<dd>0000본부 0000지점</dd>
+						</dl>
+						<dl>
+							<dt>사번</dt>
+							<dd>K000000</dd>
+						</dl>
+					</div>
+					<p>변경사항이 없을 경우 <br/>"완료" 버튼을 클릭해 주시기 바랍니다.</p>
+				</div>
+				<div class="btn">
+					<button class="btnLO">취소</button>
+					<button class="btnBO">완료</button>
+				</div>
+			</div>
+		</div>
+		<!--//신규회원 중복체크 -->
+
+		<!-- 2020-10-29 지점명 검색 -->
+		<div class="introPop searchPop" style="display:none;">
+			<div class="pBack">
+				<div class="pTit"><h1>지점명 검색</h1></div>
+				<div class="pData">
+					<div class="pDBack">
+						<div class="searchList">
+							<div class="sTop">
+								<input type="text"/>
+								<button>검색</button>
+							</div>
+							<div class="sList">
+								<div class="listTop">
+									<table class="gridListFs">
+										<colgroup>
+											<col width="200" />
+											<col width="70" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th>지점명</th>
+												<th></th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<div class="listScroll">
+									<table class="gridList">
+										<colgroup>
+											<col width="200" />
+											<col width="70" />
+										</colgroup>
+										<tbody>
+											<!--Loop-->
+											<tr>
+												<td>남양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<!--//Loop-->
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>남양주진접대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+											<tr>
+												<td>양주대리점</td>
+												<td><button class="btnBO">선택</button></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<div class="btn">
+							<button class="btnClose">취소</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<button class="pClose">팝업닫기</button>
+		</div>
+		<!--// 2020-10-29 지점명 검색 -->
+
+		<div id="blind_wrap" style="display:none;"></div><!-- //팝업용 -->
+
+		<!-- loginWrap -->
+		<div id="loginWrap">
+			<div class="loginBack">
+				<div class="loginBack2">
+					<!---->
+					<div class="loginV"></div>
+					<div class="loginForm">
+						<div class="valign">
+							<h1><strong>전자계약시스템</strong></h1><!--2019-01-04-->
+							<div class="inputBox idBox">
+								<input type="text" id="identity" />
+								<label for="identity">ID (사원번호)</label>
+							</div>
+							<div class="inputBox pwBox">
+								<input type="password" id="pw" />
+								<label for="pw">비밀번호</label>
+							</div>
+							<p class="error" style="display:none;">
+								존재하지 않았거나 잘못된 정보입니다.<br/>
+								ID(사원번호) 또는 Password를 확인해 주세요
+							</p>
+							<div class="useCheck">
+								<span class="checkSet">
+									<input type="checkbox" name="" id="chk_01" /><label for="chk_01"><i></i>아이디 저장</label>
+								</span>
+								<button>회원가입</button><!--2019-01-04-->
+							</div>
+							<button type="button" class="btnLogin errorCase">Login</button>
+							<button type="button" class="btnLogin okCase" onClick="location.href='main.html'" style="display:none;">Login</button>
+							<div class="find">
+								<button>아이디 찾기</button>
+								<button>패스워드 초기화</button><!--2019-01-04-->
+							</div>
+						</div>
+					</div>
+					<!---->
+				</div>
+			</div>
+		</div>
+		<!-- //loginWrap -->
+	</body>
+</html>

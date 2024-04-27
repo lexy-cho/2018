@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		$(document).ready(function(){
+			$(".snbRule .btn button").click(function(){
+				$(".appVersion").toggle();
+				$(this).toggleClass('on');
+			}); // 버전정보 토글
+		});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!-- header -->
+			<div id="header">
+				<span class="navBtn"><input type="button" class="mnOpen" value="열기" id="c-button--slide-left" /></span>
+				<h1><a href="mainFs.html">eSign</a></h1>
+				<h2>할부상담신청</h2>
+				<a href="main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<div class="right">
+					<span class="userInfo"><strong>김르노</strong> 님 <span>안녕하세요.</span></span>
+					<span class="session cyanCase">
+						<strong>26분 30초</strong>
+						<span></span> <!-- time progress bar -->
+					</span>
+					<button class="sesRe">세션연장</button>
+					<a class="btnLogout" href="login.html">로그아웃</a>
+				</div>
+				<span class="btnMSearch"><button>검색</button></span> <!-- 모바일의 검색버튼 -->
+			</div>
+			<!-- //header -->
+			<!-- SNB -->
+			<div id="snbPannel" class="c-menu c-menu--slide-left">
+				<input type="button" class="mnClose c-menu__close" value="닫기" />
+				<div class="snbback">
+					<div class="snbScroll">
+						<div class="snbtop">
+							<div class="back">
+								<div class="snbUserInfo">
+									<strong>반갑습니다.</strong> 경기도 지점 <em>김르노</em>님<br/>(010-1234-5678)
+									<span>세션만료 26분 30초 <input type="button" value="세션연장" /></span><!-- mobileCase -->
+								</div>
+								<div class="btn">
+									<span><a href="password.html">비밀번호 변경</a></span>
+									<span><a href="login.html">로그아웃</a></span>
+								</div>
+							</div>
+						</div>
+						<nav>
+							<ul class="snbMenu">
+								<li class="sm1"><a href="fs_performanceList.html">eSign 실적현황</a></li>
+								<li class="sm1"><a href="fs_loanList.html">대출리스트 현황</a></li>
+								<li class="sm1"><a href="fs_commissionList.html">커미션현황</a></li>
+								<li class="sm2"><a href="notice_list.html">공지사항</a></li>	
+								<li class="sm3"><a href="qna_list.html">자주 묻는 질문</a></li>
+								<li class="sm4"><a href="guide_list.html">사용자 가이드</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="snbFoot">
+						<div class="snbRule">
+							<div class="btn">
+								<span><a href="terms_conditions.html">개인정보처리방침</a></span>
+								<span><button>버전정보</button></span>
+							</div>
+							<div class="appVersion" style="display:none;">
+								<p>현재 eSign의 버전 정보 입니다</p>
+								<div><strong>eSign</strong><em>1.1.3</em></div>
+							</div>
+						</div>
+						<div class="ftlogo">RCI Financial Services Korea</div>
+					</div>
+				</div>
+			</div>
+			<div id="c-mask" class="c-mask"><!-- //메뉴용 c-mask --></div>
+			<!-- //SNB -->
+			<!-- container -->
+			<div id="container" class="o-wrapper">
+				<div class="content">
+					<section>
+						<!-- Main Layout -->
+						<div class="mLBack">
+							<div class="mainLayout">
+								<div class="fs">
+									<p>
+										<strong>김르노 님!</strong> 반갑습니다.
+										<em class="large">(OOO팀 / 010-1234-5678)</em>
+										<em>원하시는 서비스를 선택해주세요.</em>
+									</p>
+									<span>
+										<a href="fs_performanceList.html" class="goList">
+											<strong>eSign실적현황</strong> FS별 실현현황 목록을<br/>확인합니다.
+										</a>									
+										<a href="fs_loanList.html" class="goList">
+											<strong>대출리스트현황</strong> FS별 대출리스트 현황을 <br/>확인합니다.
+										</a>
+										<a href="fs_commissionList.html" class="goList">
+											<strong>커미션현황</strong> FS별 커미션 현황을 <br/>확인합니다.
+										</a>
+									</span>
+								</div>
+							</div>
+						</div>
+						<!-- //Main Layout -->
+					</section>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

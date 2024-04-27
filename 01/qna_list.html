@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<link rel="stylesheet" type="text/css" href="css/duDatepicker.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/duDatepicker.js"></script>
+		<script>
+		$(document).ready(function(){
+			$('.calInput').duDatepicker({
+				 format: 'yyyy-mm-dd', // Determines the date format
+				  theme: 'yellow',        // Determines the color theme of the date picker
+				  readOnly: true,       // Determines if input element is readonly (key input is disabled)
+				  clearBtn: false,      // Determines if Clear button is displayed
+				  cancelBtn: true,     // Determines if Cancel button is displayed
+				  overlayClose: true    // Determines if clicking the overlay will close the date picker
+			});	// 2018-11-27 달력 스크립트 추가
+
+			$(".snbRule .btn button").click(function(){
+				$(".appVersion").toggle();
+				$(this).toggleClass('on');
+			}); // 버전정보 토글
+			$('.bbsList li a div.subject .txt').each(function(){
+				var length = 35;
+				$(this).each(function(){
+					if( $(this).text().length >= length ){
+						$(this).text($(this).text().substr(0,length)+'...');
+					}
+				});
+			});
+
+			$(".btnMSearch button").click(function(){
+				$(".boardTop").slideToggle();
+			}); // 모바일 검색버튼
+		});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		<!-- wrap -->
+		<div id="wrap">
+			<!-- header -->
+			<div id="header">
+				<span class="navBtn"><input type="button" class="mnOpen" value="열기" id="c-button--slide-left" /></span>
+				<h1><a href="main.html">eSign</a></h1>
+				<h2>자주 묻는 질문</h2>
+				<a href="main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<a href="main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<div class="right">
+					<span class="userInfo"><strong>김르노</strong> 님 <span>안녕하세요.</span></span>
+					<span class="session cyanCase">
+						<strong>26분 30초</strong>
+						<span></span> <!-- time progress bar -->
+					</span>
+					<button class="sesRe">세션연장</button>
+					<a class="btnLogout" href="login.html">로그아웃</a>
+				</div>
+				<span class="btnMSearch"><button>검색</button></span> <!-- 모바일의 검색버튼 -->
+			</div>
+			<!-- //header -->
+			<!-- SNB -->
+			<div id="snbPannel" class="c-menu c-menu--slide-left">
+				<input type="button" class="mnClose c-menu__close" value="닫기" />
+				<div class="snbback">
+					<div class="snbScroll">
+						<div class="snbtop">
+							<div class="back">
+								<div class="snbUserInfo">
+									<strong>반갑습니다.</strong> 경기도 지점 <em>김르노</em>님<br/>(010-1234-5678)
+									<span>세션만료 26분 30초 <input type="button" value="세션연장" /></span><!-- mobileCase -->
+								</div>
+								<div class="btn">
+									<span><a href="password.html">비밀번호 변경</a></span>
+									<span><a href="login.html">로그아웃</a></span>
+								</div>
+							</div>
+						</div>
+						<nav>
+							<ul class="snbMenu">
+								<li class="sm1"><a href="installment_list.html">할부상담신청</a></li>
+								<!-- <li class="sm5"><a href="guide_list.html">할부상담작성</a></li> -->
+								<li class="sm2"><a href="notice_list.html">공지사항</a></li>
+								<li class="sm3"><a href="qna_list.html">자주 묻는 질문</a></li>
+								<li class="sm4"><a href="guide_list.html">사용자 가이드</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="snbFoot">
+						<div class="snbRule">
+							<div class="btn">
+								<span><a href="terms_conditions.html">개인정보처리방침</a></span>
+								<span><button>버전정보</button></span>
+							</div>
+							<div class="appVersion" style="display:none;">
+								<p>현재 eSign의 버전 정보 입니다</p>
+								<div><strong>eSign</strong><em>1.1.3</em></div>
+							</div>
+						</div>
+						<div class="ftlogo">RCI Financial Services Korea</div>
+					</div>
+				</div>
+			</div>
+			<div id="c-mask" class="c-mask"><!-- //메뉴용 c-mask --></div>
+			<!-- //SNB -->
+			<!-- container -->
+			<div id="container" class="o-wrapper notTabCase">
+				<div class="content">
+					<section>
+						<!-- Q&A Layout -->
+						<div class="listLayout">
+							<!-- Search -->
+							<div class="boardTop">
+								<div class="line">
+									<div class="calBack">
+										<!-- calendar -->
+										<span class="calArea">	
+											<span class="calSet">
+												<input type="button" value="10" class="cal" disabled/>
+												<input type="text" value="2018-07-01" class="calInput" />
+											</span>
+											<span class="term"></span>
+											<span class="calSet">
+												<input type="button" value="10" class="cal" disabled />
+												<input type="text" value="2018-07-01" class="calInput" />
+											</span>
+										</span>
+										<!--// calendar 기본 날짜는 금일 날짜가 포함된 2달 -->
+										<button class="calRe">검색 초기화</button>
+									</div>
+									<span class="listSearch">
+										<input type="text" class="title" placeholder="키워드를 입력해 주세요">
+										<button>삭제</button>
+									</span>
+									<!--//-->
+									<button class="searchIcon">검색</button>
+								</div>
+							</div>
+							<!-- PC List -->
+							<div class="pcList">
+								<!-- 리스트 타이틀 테이블 -->
+								<div class="ttTable">
+									<table cellpadding="0" cellspacing="0" border="0" class="gridList">
+										<colgroup>
+											<col width="10%" />
+											<col />
+											<col width="22%" /> <!--2019-02-15-->
+										</colgroup>
+										<thead>
+											<tr>
+												<th>번호</th>
+												<th>제목</th>
+												<th>등록일자</th>
+											</tr>
+										</thead>
+									</table>
+								</div>
+								<!--// 리스트 타이틀 테이블 -->
+								<table cellpadding="0" cellspacing="0" border="0" class="gridList">
+									<colgroup>
+										<col width="10%" />
+										<col />
+										<col width="22%" /> <!--2019-02-15-->
+									</colgroup>
+									<tbody>
+										<!-- Loop -->
+										<tr>
+											<td>10</td>
+											<td class="subject"><a href="qna_view.html">자주 묻는 질문은 정기 업데이트 입니다</a><span class="n">NEW</span></td>
+											<td>2018-12-29</td>
+										</tr>
+										<!-- //Loop -->
+										<tr>
+											<td>9</td>
+											<td class="subject"><a href="qna_view.html">주민등록증 촬영했는데, 운전면허번호 있어야 하나요?</a><span class="n">NEW</span></td>
+											<td>2018-12-29</td>
+										</tr>
+										<tr>
+											<td>8</td>
+											<td class="subject"><a href="qna_view.html">같은 고객정보 인데 촬영이미지가 달라요</a><span class="n">NEW</span></td>
+											<td>2018-12-29</td>
+										</tr>
+										<tr>
+											<td>7</td>
+											<td class="subject"><a href="qna_view.html">버튼의 터치가 안되요</a><span class="n">NEW</span></td>
+											<td>2018-12-29</td>
+										</tr>
+										<tr>
+											<td>6</td>
+											<td class="subject"><a href="qna_view.html">기기 제한이 있나요?</a></td>
+											<td>2018-12-20</td>
+										</tr>
+										<tr>
+											<td>5</td>
+											<td class="subject"><a href="qna_view.html">기기구매는 어디서 지원 받나요?</a></td>
+											<td>2018-12-20</td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td class="subject"><a href="qna_view.html">매뉴얼은 어디서 보나요?</a></td>
+											<td>2018-12-20</td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td class="subject"><a href="qna_view.html">고객 신분증 촬영이 안되요</a></td>
+											<td>2018-12-20</td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td class="subject"><a href="qna_view.html">서명 진행이 안되요</a></td>
+											<td>2018-12-20</td>
+										</tr>
+										<tr>
+											<td>1</td>
+											<td class="subject"><a href="qna_view.html">보험 신청을 다시 할 수 있나요?</a></td>
+											<td>2018-12-20</td>
+										</tr>
+										<!-- None -->
+										<!-- <tr>
+											<td colspan="5" class="notLine">
+												<span>등록된 게시물이 없습니다.</span>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="5" class="notLine">
+												<span>검색된 결과가 없습니다.</span>
+											</td>
+										</tr> -->
+										<!-- //None -->
+									</tbody>
+								</table>
+							</div>
+							<!-- Mobile List -->
+							<div class="mobileList">
+								<div class="bbsList">
+									<ul>
+										<!-- Loop -->
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>99</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span><span class="n">NEW</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<!-- //Loop -->
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>20</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>19</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>18</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>17</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다 자주 묻는 질문 제목이 노출됩니다 자주 묻는 질문 제목이 노출됩니다 자주 묻는 질문 제목이 노출됩니다 자주 묻는 질문 제목이 노출됩니다 자주 묻는 질문 제목이 노출됩니다 자주 묻는 질문 제목이 노출됩니다</span><span class="n">NEW</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>16</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>15</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>14</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>13</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>12</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>11</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>10</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>9</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>8</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>7</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>6</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>5</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>4</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>3</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>2</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<li>
+											<a href="qna_view.html">
+												<span class="num"><em>1</em></span>
+												<div class="subject"><span class="txt">자주 묻는 질문 제목이 노출됩니다</span></div>
+												<strong>2000-00-00</strong>
+											</a>
+										</li>
+										<!-- None -->
+										<!-- <li class="notLine">
+											<span>등록된 게시물이 없습니다.</span>
+										</li>
+										<li class="notLine">
+											<span>검색된 결과가 없습니다.</span>
+										</li> -->
+										<!-- //None -->
+									</ul>
+								</div>
+							</div>
+							<!---->
+						</div>
+						<!-- //Q&A Layout -->
+					</section>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8" />
+		<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
+		<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+		<meta name="format-detection" content="telephone=no"/>
+		<title>RCI eSign - 전자 할부신청 시스템</title>
+		<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+		<link rel="stylesheet" type="text/css" href="css/font.css" />
+		<link rel="stylesheet" type="text/css" href="css/responsive.css" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://code.jquery.com/jquery-migrate-1.4.1.min.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script type="text/javascript" src="js/menu.js"></script>
+		<script type="text/javascript" src="js/common.js"></script>
+		<script>
+		$(document).ready(function(){
+			$(".checkArea").click(function(){
+				$(".carNumPop").show();
+			});
+			$(".carNumPop button").click(function(){
+				$(".carNumPop").hide();
+				$(".checkArea").hide();
+				$(".checkArea.on").show();
+			});
+			$(".ismWrite .btnBO").click(function(){
+				$(".tostPop").show();
+				setTimeout(function(){ 
+					$(".tostPop").hide();
+					$(".ismBtn a.btnBG").removeClass('btnBG').addClass('btnBO');
+				}, 3000);
+			});
+			/*$("input").focus(function() {
+			  alert("width" + $(window).width() + "/ height" + $(window).height());
+			});*/
+		});
+		</script>
+	</head>
+	<body>
+		<!-- skip-navigation -->
+		<div class="skip-navigation">
+			<p><a href="#container" tabindex="0">본문 바로가기</a></p>
+		</div>
+		<!-- //skip-navigation -->
+		
+		<!-- Tost Pop -->
+		<div class="dimPop tostPop" style="display:none">
+			<div class="popBack">
+				<div class="popData">
+					<div>
+						신분증 진위여부 확인이 완료되었습니다.<br/>다음버튼을 클릭하고 신청을 계속해 주세요.
+					</div>
+				</div>
+				<em>본 안내는 3초 후 사라집니다</em>
+			</div>
+		</div>
+		<!--// Tost Pop -->
+		
+		<!-- 운전면허번호 입력 -->
+		<div class="dimPop carNumPop" style="display:none">
+			<div class="popBack">
+				<div class="popData">
+					<p>
+						차량 소유자의 운전면허번호를 입력해 주세요.<br/>
+						<em>(신분증 촬영을 운전면허증으로 다시 진행해도 좋습니다.)</em>
+					</p>
+					<div class="ismWrite">
+						<dl>
+							<dt>이름</dt>
+							<dd><input type="text" value="홍길동" /></dd>
+						</dl>
+						<dl>
+							<dt>주민등록번호</dt>
+							<dd><input type="text" value="123456-7891012" /></dd>
+						</dl>
+						<dl>
+							<dt>운전면허번호</dt>
+							<dd><input type="text" placeholder="숫자로 입력해주세요" /></dd>
+						</dl>
+						<dl>
+							<dt>발급일</dt>
+							<dd><input type="text" placeholder="숫자로 입력해주세요" /></dd>
+						</dl>
+					</div>
+				</div>
+				<div class="btn">
+					<button class="btnLO">취소</button>
+					<button class="btnBO">인증하기</button>
+				</div>
+			</div>
+		</div>
+		<!--// 운전면허번호 입력 -->
+
+		<!-- wrap -->
+		<div id="wrap">
+			<!-- header -->
+			<div id="header">
+				<span class="navBtn"><a href="installment_list.html" class="mnPrev">이전</a></span>
+				<h1><a href="main.html">eSign</a></h1>
+				<h2>할부상담신청</h2>
+				<a href="main.html" class="home">메인으로 이동</a> <!--2019-01-11-->
+				<div class="right">
+					<span class="userInfo"><strong>김르노</strong> 님 <span>안녕하세요.</span></span>
+					<span class="session cyanCase">
+						<strong>26분 30초</strong>
+						<span></span> <!-- time progress bar -->
+					</span>
+					<button class="sesRe">세션연장</button>
+					<a class="btnLogout" href="login.html">로그아웃</a>
+				</div>
+				<span class="btnMSearch"><button>검색</button></span> <!-- 모바일의 검색버튼 -->
+			</div>
+			<!-- //header -->
+			<!-- SNB : 상세화면에서는 생략 -->
+			<!-- container -->
+			<div id="container" class="o-wrapper ismViewCase">
+				<div class="content">
+					<section>
+						<!-- Installment Layout -->
+						<div class="ismViewLayout fullCase2">
+							<!---->
+							<div class="ismTitStep">
+								<!-- <h3>신분증 촬영</h3> -->
+								<div>
+									<span class="pass"><strong>1</strong><em>eSign 가능대상 확인</em></span><!--2019-01-04-->
+									<span class="pass"><strong>2</strong><em>개인정보동의 및 휴대전화 본인인증</em></span>
+									<span class="on"><strong>3</strong><em>신분증 진위여부 확인</em></span>
+									<span><strong>4</strong><em>할부상담신청 작성</em></span>
+									<span><strong>5</strong><em>할부상담신청 완료</em></span>
+								</div>
+							</div>
+							<!---->
+							<div class="ismDetail tableCase">
+								<div class="col">
+									<!-- step4 -->
+									<div class="step4">
+										<div class="step4Back step4-3">
+											<p class="large tLine">촬영한 고객님의 신분증 정보입니다. </p>
+											<p class="middle">
+												수정이 필요한 항목은 수정을 진행해 주세요. 재촬영이 필요할 경우 촬영 버튼을 선택해 주세요.
+											</p>
+											<div class="gridSet grid2">
+												<div class="gridItem edit">
+													<div class="ismWrite">
+														<dl>
+															<dt>이름</dt>
+															<dd><input type="text" value="홍길동" /></dd>
+														</dl>
+														<dl>
+															<dt>주민등록번호</dt>
+															<dd><input type="text" value="123456-7891012" /></dd>
+														</dl>
+														<dl>
+															<dt>발급일</dt>
+															<dd><input type="text" value="2015-01-22" /></dd>
+														</dl>
+														<p>
+															추출한 정보에 오류가 있을 경우 수정해 주세요.<br/>
+															정보가 올바르다면 <em>[본인인증하기]</em>를 클릭해 주세요.
+														</p>
+														<div class="btn">
+															<button class="btnBO">본인인증하기</button>
+														</div>
+													</div>
+												</div>
+												<div class="gridItem photo">
+													<span class="img"><em><img src="images/identySample.png" alt="" /></em></span>
+													<div class="btn">
+														<button class="btnLO">신분증 재촬영</button>
+													</div>
+													<div class="checkArea"><div><span><i></i>운전면허번호 입력을 합니다</span></div></div>
+													<div class="checkArea on" style="display:none;"><div><span><i></i>운전면허번호 인증완료</span></div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- //step4 -->
+								</div>
+							</div>
+							<!---->
+							<div class="ismBtn">
+								<a href="installment_list.html" class="btnLO">취소</a>
+								<a href="installment_write4.html" class="btnBG">다음</a>
+							</div>
+							<!---->
+						</div>
+						<!-- //Installment Layout -->
+						<p class="notBack">※ 주의 : 안드로이드 계열기기의 경우 [뒤로 돌아가기(BACK)] 버튼을 지원하지 않습니다.</p>
+					</section>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //wrap -->
+	</body>
+</html>
